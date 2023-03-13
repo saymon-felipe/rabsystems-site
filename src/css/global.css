@@ -2,7 +2,9 @@
     --white: #FFFAFF;
     --black: #000501;
     --blue: #03C7FE;
+    --blue-low: #00acdb;
     --purple: #870CCF;
+    --purple-low: #730baf;
     --gray: #3B413C;
     --gray-high: #DDDDDF;
 }
@@ -27,28 +29,50 @@ h1, h2, h3, h4 {
 }
 
 h1 {
-    font-size: calc(1vw + 1rem);
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
 h2 {
-    font-size: calc(1vw + .7rem);
+    font-size: 2rem;
     font-weight: 600;
 }
 
 h3 {
-    font-size: calc(1vw + .3rem);
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 h4 {
-    font-size: calc(1vw + .2rem);
+    font-size: .9rem;
     font-weight: 500;
 }
 
 p {
-    font-size: calc(1vw + .3rem);
+    font-size: 1rem;
     font-weight: 500;
+}
+
+@media (max-width: 659px) {
+    h1 {
+        font-size: 1.9rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1rem;
+    }
+    
+    h4 {
+        font-size: .8rem;
+    }
+    
+    p {
+        font-size: .9rem;
+    }
 }
 
 .btn-clear-primary {
@@ -66,3 +90,35 @@ p {
         color: var(--white) !important;
         outline: 2px solid var(--purple) !important;
     }
+
+.btn-primary {
+    background-image: linear-gradient(to right, var(--blue), var(--purple));
+    border: none;
+    padding: .6rem 1rem;
+    font-weight: 600;
+}
+
+    .btn-primary:hover {
+        background-image: linear-gradient(to right, var(--blue-low), var(--purple-low));
+    }
+
+    .btn-primary:active {
+        outline: 2px solid var(--purple-low);
+    }
+
+/* ESTILOS GLOBO HOME */
+
+.globe-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+@media (max-width: 998px) {
+    .globe-container {
+        opacity: 0;
+    }
+}
+
+/* ESTILOS GLOBO HOME */

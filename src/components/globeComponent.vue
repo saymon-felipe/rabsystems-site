@@ -40,7 +40,7 @@ export default {
 
             scene = new THREE.Scene();
 
-            geometry = new THREE.SphereGeometry(120, 64, 64);
+            geometry = new THREE.SphereGeometry(200, 64, 64);
 
             material = new THREE.MeshBasicMaterial({
                 map: new THREE.TextureLoader().load(require('@/assets/img/earth-background.png'))
@@ -48,8 +48,8 @@ export default {
 
             mesh = new THREE.Mesh(geometry, material);
 
-            const size = (window.innerHeight / 2) / (window.innerWidth / 2) * 1.7;
-            mesh.scale.set(1/size, 1/size, 1/size);
+            //const size = (window.innerHeight / 2) / (window.innerWidth / 2) * 1.7;
+            //mesh.scale.set(1/size, 1/size, 1/size);
             scene.add(mesh);
 
             renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -104,8 +104,8 @@ export default {
             renderer.setSize(width, height);
         
             // Ajusta o tamanho da geometria do planeta
-            const size = (window.innerHeight / 2) / (window.innerWidth / 2) * 1.7;
-            mesh.scale.set(1/size, 1/size, 1/size);
+            //const size = (window.innerHeight / 2) / (window.innerWidth / 2) * 1.7;
+            //mesh.scale.set(1/size, 1/size, 1/size);
         }
 
         function onDocumentMouseDown(event) {
@@ -145,16 +145,15 @@ export default {
 canvas {
     display: block;
     background-color: transparent;
-    position: relative;
 }
 
-.globe-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
+.globe-component {
+    position: absolute !important;
+    top: 4rem;
+    right: -12vw;
 }
 
-.globe-container::before {
+.globe-component::before {
     content: "";
     width: 100vh;
     height: 100vh;
@@ -174,4 +173,6 @@ canvas {
     background-clip: padding-box;
     opacity: 0.3;
 }
+
+
 </style>

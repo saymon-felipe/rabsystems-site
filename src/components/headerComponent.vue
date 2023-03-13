@@ -1,38 +1,40 @@
 <template>
-    <div class="header-container container">
-        <div class="header-content">
-            <div class="nav-brand">
-                <a href="#">
-                    <img src="../assets/img/rabsystems-logo.png" alt="Logo Rabystems">
-                </a>
+    <div class="header-container">
+        <div class="container">
+            <div class="header-content">
+                <div class="nav-brand">
+                    <a href="#">
+                        <img src="../assets/img/rabsystems-logo.png" alt="Logo Rabystems">
+                    </a>
+                </div>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Clientes</a>
+                        </li>
+                        <li>
+                            <a href="#">Serviços</a>
+                        </li>
+                        <li>
+                            <a href="#">Contato</a>
+                        </li>
+                        <li>
+                            <a href="#">Sobre</a>
+                        </li>
+                    </ul>
+                </nav>    
+                <div class="header-action-buttons">
+                    <a href="#">Login</a>
+                    <button class="btn btn-clear-primary">Cadastre-se</button>
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Clientes</a>
-                    </li>
-                    <li>
-                        <a href="#">Serviços</a>
-                    </li>
-                    <li>
-                        <a href="#">Contato</a>
-                    </li>
-                    <li>
-                        <a href="#">Sobre</a>
-                    </li>
-                </ul>
-            </nav>    
-            <div class="header-action-buttons">
-                <a href="#">Login</a>
-                <button class="btn btn-clear-primary">Cadastre-se</button>
+            <div class="menu-wrapper" v-on:click="toggleMenu()"></div>
+            <div class="responsive-menu-icon" v-on:click="toggleMenu()">
+                <i class="fas fa-bars"></i>
             </div>
-        </div>
-        <div class="menu-wrapper" v-on:click="toggleMenu()"></div>
-        <div class="responsive-menu-icon" v-on:click="toggleMenu()">
-            <i class="fas fa-bars"></i>
         </div>
     </div>
 </template>
@@ -85,12 +87,15 @@ export default {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     margin: auto;
+    z-index: 5;
+    width: 100vw;
+    background: rgba(255, 255, 255, 0.5);
 } 
 
 .header-content {
@@ -136,7 +141,7 @@ nav {
 }
 
 .nav-brand img {
-    width: calc(5vw + 80px);
+    width: calc(4vw + 80px);
 }
 
 .header-action-buttons {
@@ -161,12 +166,13 @@ nav {
         }
 
 nav ul li a, .header-action-buttons a {
-    font-size: calc(.5vw + 0.8rem);
+    font-size: 1rem;
 }
 
 .responsive-menu-icon {
     display: none;
     cursor: pointer;
+    width: fit-content;
 }
 
     .responsive-menu-icon i {
@@ -198,7 +204,7 @@ nav ul li a, .header-action-buttons a {
     box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s;
     background: var(--white);
-    z-index: 2;
+    z-index: 3;
 }
 
     .responsive-menu nav ul {
@@ -234,6 +240,7 @@ nav ul li a, .header-action-buttons a {
 @media (max-width: 998px) {
     .responsive-menu-icon {
         display: block;
+        float: right;
     }
 
     .responsive-menu  {
