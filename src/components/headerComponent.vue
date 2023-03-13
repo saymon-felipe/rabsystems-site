@@ -86,6 +86,11 @@ export default {
     align-items: center;
     justify-content: flex-end;
     padding: 1.5rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 } 
 
 .header-content {
