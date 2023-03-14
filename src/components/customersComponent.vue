@@ -33,10 +33,6 @@ import animationData from "../assets/animations/customers-animation.json";
 
 export default {
     name: "customersComponent",
-    data() {
-        return {
-        }
-    },
     mounted: function () {
         this.lottieAnimation = lottie.loadAnimation({
             container: this.$refs.lottieContainer,
