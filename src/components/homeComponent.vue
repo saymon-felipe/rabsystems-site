@@ -2,14 +2,14 @@
     <div class="home-component-container">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-5 col-sm-12">
                     <div class="home-text">
                         <h1>Soluções web <br> modernas e <br> personalizadas <br> para você</h1>
-                        <h3>Crie uma presença online moderna e <br> personalizada com a Rabsystems, <br> sua agência web.</h3>
+                        <h3>Crie uma presença online moderna e personalizada com a Rabsystems, sua agência web.</h3>
                         <button class="btn btn-primary">Solicitar orçamento</button>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-7 col-sm-12">
                     <div class="home-hero">
                         <globeComponent /> 
                     </div>
@@ -33,7 +33,7 @@ export default {
     height: 100%;
 }
 .home-component-container {
-    padding-top: 10rem;
+    padding-top: calc(12vh + 2rem);
     height: 80vh;
     overflow: hidden;
     position: relative;
