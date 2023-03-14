@@ -55,4 +55,10 @@ export default {
     .text-container p {
         margin-bottom: 3rem;
     }
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column-reverse;
+    }
+}
 </style>
