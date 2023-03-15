@@ -1,3 +1,5 @@
+@import '~animate.css/animate.min.css';
+
 :root {
     --white: #FFFAFF;
     --black: #000501;
@@ -96,6 +98,7 @@ p {
     border: none;
     padding: .6rem 1rem;
     font-weight: 600;
+    color: var(--white) !important;
 }
 
     .btn-primary:hover {
