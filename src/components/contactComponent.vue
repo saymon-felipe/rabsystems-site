@@ -73,15 +73,25 @@ export default {
             if (this.firstTime) {
                 if (this.showNextButton) {
                     let element = $(".contact-form-container-button");
+                    let contentContainer = $(".contact-content");
+                    let currentHeight = contentContainer.height();
+
+                    contentContainer.css("min-height", currentHeight).css("height", currentHeight);
+
+                    setTimeout(() => {
+                        contentContainer.css("min-height", currentHeight + 200).css("height", currentHeight + 200);
+                    }, 10)
                     
                     this.firstTime = false;
 
-                    const scrollTop = $("body").scrollTop();
-                    let targetOffset = $(".button-wrapper").offset().top + scrollTop;
-                    $('html, body').animate({scrollTop: targetOffset}, 1000);
+                    if (window.innerWidth < 768) {
+                        const scrollTop = $("body").scrollTop();
+                        let targetOffset = $(".button-wrapper").offset().top + scrollTop;
+                        $('html, body').animate({scrollTop: targetOffset}, 1000);
+                    }
 
                     setTimeout(() => {
-                        element.css("opacity", 1);
+                        element.css("display", "flex");
                         setTimeout(() => {
                             element.addClass("animate__bounceInRight");
                         }, 10)
@@ -147,11 +157,15 @@ export default {
             console.log(data)
         },
         goToNextStep: function () {
+            let contactContent = $(".contact-content");
             let contactFormsContainer = $(".forms-contact");
             let sendContact = $(".send-contact-form");
             let contentContainer = $("#content");
             let currentHeight = contentContainer.height();
             contactFormsContainer.addClass("animate__bounceOutLeft");
+
+            contactContent.css("min-height", "fit-content").css("height", "fit-content");
+
             setTimeout(() => {
                 contentContainer.css("min-height", currentHeight);
                 contactFormsContainer.hide();
@@ -159,7 +173,7 @@ export default {
                 sendContact.addClass("animate__bounceInRight");
 
                 const scrollTop = $("body").scrollTop();
-                let targetOffset = $(".contact-component").offset().top + scrollTop;
+                let targetOffset = $(".contact-component").offset().top + scrollTop - 50;
                 $('html, body').animate({scrollTop: targetOffset}, 1000);
             }, 300)
         },
@@ -206,16 +220,15 @@ export default {
     position: relative;
 }
 
-.send-contact-form, .contact-success {
+.send-contact-form, .contact-success, .contact-form-container-button {
     display: none;
-}
-
-.contact-form-container-button {
-    opacity: 0;
 }
 
 .contact-content {
     margin: 2rem 0;
+    transition: all 0.4s ease-in-out;
+    min-height: fit-content;
+    height: fit-content;
 }
 
 .button-wrapper {
@@ -230,7 +243,6 @@ export default {
     width: 300px;
     height: 200px;
     padding: 2rem;
-    display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
