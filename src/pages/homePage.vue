@@ -5,6 +5,7 @@
         <customersComponent />
         <servicesComponent />
         <contactComponent />
+        <aboutComponent />
     </div>
 </template>
 <script>
@@ -13,6 +14,7 @@ import homeComponent from "../components/homeComponent.vue";
 import customersComponent from "../components/customersComponent.vue";
 import servicesComponent from "../components/servicesComponent.vue";
 import contactComponent from "../components/contactComponent.vue";
+import aboutComponent from "../components/aboutComponent.vue";
 
 export default {
     name: "homePage",
@@ -21,7 +23,8 @@ export default {
         homeComponent,
         customersComponent,
         servicesComponent,
-        contactComponent
+        contactComponent,
+        aboutComponent
     }
 }
 </script>
