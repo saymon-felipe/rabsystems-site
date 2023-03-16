@@ -126,7 +126,7 @@ export default {
                 contactSuccess.addClass("animate__bounceInRight");
 
                 const scrollTop = $("body").scrollTop();
-                let targetOffset = $(".contact-component").offset().top + scrollTop;
+                let targetOffset = $(".contact-component").offset().top + scrollTop - 50;
                 $('html, body').animate({scrollTop: targetOffset}, 1000);
             }, 300)
         },
