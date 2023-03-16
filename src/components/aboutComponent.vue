@@ -47,6 +47,7 @@ export default {
 
     .text-container h2 {
         margin-bottom: 1rem;
+        width: 100%;
     }
 
 @media (max-width: 768px) {
