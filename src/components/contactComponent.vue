@@ -115,12 +115,9 @@ export default {
         finalizeContact: function () {
             let sendContact = $(".send-contact-form");
             let contactSuccess = $(".contact-success");
-            let contentContainer = $("#content");
-            let currentHeight = contentContainer.height();
             sendContact.addClass("animate__bounceOutLeft");
 
             setTimeout(() => {
-                contentContainer.css("min-height", currentHeight);
                 sendContact.hide();
                 contactSuccess.css("display", "flex");
                 contactSuccess.addClass("animate__bounceInRight");
@@ -161,13 +158,15 @@ export default {
             let contactFormsContainer = $(".forms-contact");
             let sendContact = $(".send-contact-form");
             let contentContainer = $("#content");
+            contactContent.css("min-height", "fit-content").css("height", "fit-content");
+
             let currentHeight = contentContainer.height();
             contactFormsContainer.addClass("animate__bounceOutLeft");
 
             contactContent.css("min-height", "fit-content").css("height", "fit-content");
 
             setTimeout(() => {
-                contentContainer.css("min-height", currentHeight);
+                contactContent.css("min-height", currentHeight);
                 contactFormsContainer.hide();
                 sendContact.show();
                 sendContact.addClass("animate__bounceInRight");
@@ -175,6 +174,7 @@ export default {
                 const scrollTop = $("body").scrollTop();
                 let targetOffset = $(".contact-component").offset().top + scrollTop - 50;
                 $('html, body').animate({scrollTop: targetOffset}, 1000);
+                contactContent.css("min-height", "fit-content").css("height", "fit-content");
             }, 300)
         },
         addSubject: function (event) {
