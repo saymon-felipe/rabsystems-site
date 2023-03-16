@@ -165,7 +165,7 @@ canvas {
 .globe-component {
     position: absolute !important;
     top: 4rem;
-    right: -12vw;
+    right: calc(-45px - 14vw);
 }
 
 .globe-component::before {
