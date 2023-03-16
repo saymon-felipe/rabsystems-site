@@ -2,11 +2,33 @@
     <div class="contact-component">
         <div class="container">
             <h2>Entre em contato e impulsione seu negócio hoje!</h2>
-            <div class="forms-contact">
+            <div class="forms-contact" v-if="select_subject">
                 <contactFormComponent @selected_subject="addSubject($event)" object_id="site_design" icon="<i class='fas fa-pen-nib'></i>" contact_title="Design de sites" contact_description="Preciso de um design para o meu site" />
                 <contactFormComponent @selected_subject="addSubject($event)" object_id="site_development" icon="<i class='fas fa-code'></i>" contact_title="Desenvolvimento de sites" contact_description="Preciso da construção de um site completo" />
                 <contactFormComponent @selected_subject="addSubject($event)" object_id="others" icon="<i class='fas fa-question'></i>" contact_title="Outro assunto" contact_description="Fale conosco, estamos aqui para ajudar!" />
                 <contactFormComponent @submit_event="goToNextStep()" class="next-button" :show_button="showNextButton" icon="<i class='fas fa-check'></i>" contact_title="Enviar" :send_button="true" contact_description="" />
+            </div>
+            <div class="send-contact-form" v-if="!select_subject">
+                <form @submit.prevent="sendContact($event)">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" placeholder="Insira seu nome" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Insira seu email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="tel-input">Telefone</label>
+                        <div class="rabsystems-input">
+                            <div class="flag-input">
+                                <div class="current-flag-container"></div>
+                                <div class="flag-list"></div>
+                            </div>
+                            <input type="tel" name="tel" id="tel-input" required>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -24,7 +46,8 @@ export default {
         return {
             subjectArray: [],
             showNextButton: false,
-            firstTime: true
+            firstTime: true,
+            select_subject: true
         }
     },
     watch: {
@@ -44,7 +67,11 @@ export default {
         
     },
     methods: {
+        sendContact: function () {
+
+        },
         goToNextStep: function () {
+            this.select_subject = false;
             console.log(this.subjectArray);
         },
         addSubject: function (event) {

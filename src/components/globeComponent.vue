@@ -109,6 +109,9 @@ export default {
         }
 
         function onDocumentMouseDown(event) {
+            if (event.target != "canvas") {
+                return;
+            }
             event.preventDefault();
 
             document.addEventListener('mousemove', onDocumentMouseMove, false);

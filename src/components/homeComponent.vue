@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-md-7 col-sm-12">
                     <div class="home-hero">
-                        <globeComponent /> 
+                        <globeComponent />
                     </div>
                 </div>
             </div>
