@@ -1,6 +1,6 @@
 <template>
-    <div class="contact-form-container" :class="[send_button ? 'btn-primary animate__animated' : '', addSelectedClass && !send_button  ? 'selected-container' : '', show_button == false ? 'disabled-field' : '']" v-on:click="selectCurrentObject()">
-        <div class="select-area" v-if="!send_button">
+    <div class="contact-form-container" :class="addSelectedClass ? 'selected-container' : ''" v-on:click="selectCurrentObject()">
+        <div class="select-area">
             <i class="fas fa-check"></i>
         </div>
         <div v-html="icon" class="contact-icon"></div>
@@ -9,11 +9,9 @@
     </div>
 </template>
 <script>
-import $ from 'jquery';
-
 export default {
     name: "contactFormComponent",
-    props: ["icon", "contact_title", "contact_description", "send_button", "object_id", "show_button"],
+    props: ["icon", "contact_title", "contact_description", "object_id"],
     data() {
         return {
             addSelectedClass: false
@@ -21,24 +19,10 @@ export default {
     },
     methods: {
         selectCurrentObject: function () {
-            if (this.send_button) {
-                this.goToNextStep();
-            } else {
-                this.addSelectedClass = !this.addSelectedClass;
-                this.$emit("selected_subject", this.object_id);
-            }
+            this.addSelectedClass = !this.addSelectedClass;
+            this.$emit("selected_subject", this.object_id);
         },
-        goToNextStep: function () {
-            let element = $(".contact-form-container");
-            if (this.show_button) {
-                this.$emit("submit_event");
-            } else {
-                element.addClass("animate__headShake");
-                setTimeout(() => {
-                    element.removeClass("animate__headShake");
-                }, 800)
-            }
-        }
+        
     }
 }
 </script>
@@ -57,6 +41,7 @@ export default {
     position: relative;
     transition: all 0.4s;
     margin: 1rem;
+    z-index: 2;
 }
 
     .contact-form-container:hover {
@@ -98,11 +83,4 @@ export default {
 .contact-icon {
     font-size: 3rem;
 }
-
-.disabled-field {
-    filter: grayscale(100%);
-    cursor: initial
-}
-
-
 </style>

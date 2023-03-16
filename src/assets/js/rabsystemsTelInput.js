@@ -48,7 +48,7 @@ function mountTelInputElement () {
 function initInput() {
     let input = $(".rabsystems-input");
 
-    if (input.length == 0) {
+    if (!input.is(":visible")) {
         setTimeout(() => {
             initInput();
         }, 50)
@@ -200,15 +200,19 @@ function validateInput() { // Função valida o conteúdo do input e adiciona cl
     }
 }
 
-/*function getTelInputValue() { // Pega o valor do input removendo caracteres especiais e espaço para submit do formulário.
-    let ddi = $(".current-flag-container .flag-item").attr("ddi"), number = $("#tel-input").val().replace("(", "").replace(")", "").replace("-", "").replace(" ", '').replace(" ", '');
+let telInputFunctions = {
+    getTelInputValue: function () {
+        let ddi = $(".current-flag-container .flag-item").attr("ddi"), number = $("#tel-input").val().replace("(", "").replace(")", "").replace("-", "").replace(" ", '').replace(" ", '');
 
-    if (number == "") {
-        return;
+        if (number == "") {
+            return;
+        }
+
+        return `${ddi}${number}`;
     }
+}
 
-    return `${ddi}${number}`;
-}*/
+export default telInputFunctions;
 
 function changePlaceholder(input, currentFlagElement) { // Função muda o placeholder do input conforme o país selecionado.
     input.attr("placeholder", currentFlagElement.attr("number_placeholder"));

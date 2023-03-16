@@ -7,15 +7,21 @@
                     <div class="customers-logo">
                         <div class="row">
                             <div class="col-6">
-                                <img src="../assets/img/customers/solutto-logo.png" alt="Logo Solutto">
+                                <a target="_blank" href="https://www.solutto.com.br">
+                                    <img src="../assets/img/customers/solutto-logo.png" alt="Logo Solutto" title="Solutto">
+                                </a>
                             </div>
                             <div class="col-6">
-                                <img src="../assets/img/customers/mokaly-logo.png" alt="Logo Mokaly">
+                                <a target="_blank" href="https://www.mokaly.com">
+                                    <img src="../assets/img/customers/mokaly-logo.png" alt="Logo Mokaly" title="Mokaly">
+                                </a>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12">
-                                <img src="../assets/img/customers/cademint-logo.png" alt="Logo Cademint">
+                                <a target="_blank" href="https://cademint.netlify.app">
+                                    <img src="../assets/img/customers/cademint-logo.png" alt="Logo Cademint" title="Cademint">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -55,6 +61,7 @@ export default {
 
 .customers-container img {
     width: calc(5vw + 5rem);
+    cursor: pointer;
 }
 
 .customers-logo {

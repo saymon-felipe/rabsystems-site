@@ -1,34 +1,49 @@
 <template>
     <div class="contact-component">
-        <div class="container">
+        <div class="container" id="content">
             <h2>Entre em contato e impulsione seu negócio hoje!</h2>
-            <div class="forms-contact" v-if="select_subject">
-                <contactFormComponent @selected_subject="addSubject($event)" object_id="site_design" icon="<i class='fas fa-pen-nib'></i>" contact_title="Design de sites" contact_description="Preciso de um design para o meu site" />
-                <contactFormComponent @selected_subject="addSubject($event)" object_id="site_development" icon="<i class='fas fa-code'></i>" contact_title="Desenvolvimento de sites" contact_description="Preciso da construção de um site completo" />
-                <contactFormComponent @selected_subject="addSubject($event)" object_id="others" icon="<i class='fas fa-question'></i>" contact_title="Outro assunto" contact_description="Fale conosco, estamos aqui para ajudar!" />
-                <contactFormComponent @submit_event="goToNextStep()" class="next-button" :show_button="showNextButton" icon="<i class='fas fa-check'></i>" contact_title="Enviar" :send_button="true" contact_description="" />
-            </div>
-            <div class="send-contact-form" v-if="!select_subject">
-                <form @submit.prevent="sendContact($event)">
-                    <div class="form-group">
-                        <label for="name">Nome</label>
-                        <input type="text" id="name" placeholder="Insira seu nome" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="Insira seu email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="tel-input">Telefone</label>
-                        <div class="rabsystems-input">
-                            <div class="flag-input">
-                                <div class="current-flag-container"></div>
-                                <div class="flag-list"></div>
-                            </div>
-                            <input type="tel" name="tel" id="tel-input" required>
+            <div class="contact-content">
+                <div class="forms-contact animate__animated">
+                    <contactFormComponent @selected_subject="addSubject($event)" object_id="site_design" icon="<i class='fas fa-pen-nib'></i>" contact_title="Design de sites" contact_description="Preciso de um design para o meu site" />
+                    <contactFormComponent @selected_subject="addSubject($event)" object_id="site_development" icon="<i class='fas fa-code'></i>" contact_title="Desenvolvimento de sites" contact_description="Preciso da construção de um site completo" />
+                    <contactFormComponent @selected_subject="addSubject($event)" object_id="others" icon="<i class='fas fa-question'></i>" contact_title="Outro assunto" contact_description="Fale conosco, estamos aqui para ajudar!" />
+                    <button type="button" class="contact-form-container-button btn-primary animate__animated" :class="!showNextButton ? 'disabled-field' : ''" v-on:click="handleClickNextButton()">
+                        <i class='fas fa-check contact-icon'></i>
+                        <h5>Avançar</h5>
+                    </button>
+                    <div class="button-wrapper"></div>
+                </div>
+                <div class="send-contact-form animate__animated">
+                    <form @submit.prevent="sendContact()" id="send-informations-form">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" placeholder="Insira seu nome" name="name" required>
                         </div>
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="Insira seu email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="tel-input">Telefone</label>
+                            <div class="rabsystems-input">
+                                <div class="flag-input">
+                                    <div class="current-flag-container"></div>
+                                    <div class="flag-list"></div>
+                                </div>
+                                <input type="tel" name="tel" id="tel-input" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Conte-nos sobre seu projeto"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary animate__animated" id="send-button">Enviar</button>
+                    </form>
+                    <p class="response">{{ response }}</p>
+                </div>
+                <div class="contact-success animate__animated">
+                    <div ref="lottieContainer" class="success-animation"></div>
+                    <h3>Sua mensagem foi enviada! <br> Responderemos em breve</h3>
+                </div>
             </div>
         </div>
     </div>
@@ -36,6 +51,9 @@
 <script>
 import contactFormComponent from "./contactFormComponent.vue";
 import $ from 'jquery';
+import lottie from "lottie-web";
+import animationData from "../assets/animations/check-animation.json";
+import telInputFunctions from '../assets/js/rabsystemsTelInput.js';
 
 export default {
     name: "contactComponent",
@@ -47,32 +65,103 @@ export default {
             subjectArray: [],
             showNextButton: false,
             firstTime: true,
-            select_subject: true
+            response: ""
         }
     },
     watch: {
         showNextButton: function () {
             if (this.firstTime) {
                 if (this.showNextButton) {
-                    let element = $(".next-button");
-                    element.css("opacity", 1);
+                    let element = $(".contact-form-container-button");
+                    
                     this.firstTime = false;
 
+                    const scrollTop = $("body").scrollTop();
+                    let targetOffset = $(".button-wrapper").offset().top + scrollTop;
+                    $('html, body').animate({scrollTop: targetOffset}, 1000);
+
                     setTimeout(() => {
-                        element.addClass("animate__bounceInRight");
-                    }, 10)
+                        element.css("opacity", 1);
+                        setTimeout(() => {
+                            element.addClass("animate__bounceInRight");
+                        }, 10)
+                    }, 100)
                 }
             }
         },
-        
     },
     methods: {
-        sendContact: function () {
+        handleClickNextButton: function () {
+            let element = $(".contact-form-container-button");
+            if (this.showNextButton) {
+                this.goToNextStep();
+            } else {
+                element.addClass("animate__headShake");
+                setTimeout(() => {
+                    element.removeClass("animate__headShake");
+                }, 800)
+            }
+        },
+        finalizeContact: function () {
+            let sendContact = $(".send-contact-form");
+            let contactSuccess = $(".contact-success");
+            let contentContainer = $("#content");
+            let currentHeight = contentContainer.height();
+            sendContact.addClass("animate__bounceOutLeft");
 
+            setTimeout(() => {
+                contentContainer.css("min-height", currentHeight);
+                sendContact.hide();
+                contactSuccess.css("display", "flex");
+                contactSuccess.addClass("animate__bounceInRight");
+
+                const scrollTop = $("body").scrollTop();
+                let targetOffset = $(".contact-component").offset().top + scrollTop;
+                $('html, body').animate({scrollTop: targetOffset}, 1000);
+            }, 300)
+        },
+        sendContact: function () {
+            let telInput = $("#tel-input");
+            let response = $(".response");
+            this.response = "";
+
+            response.removeClass("error");
+            if (telInput.attr("is_valid") == "false") {
+                let sendButton = $("#send-button");
+                this.response = "Corrija os erros antes de enviar";
+                response.addClass("error");
+                sendButton.addClass("animate__headShake");
+                setTimeout(() => {
+                    sendButton.removeClass("animate__headShake");
+                }, 800)
+                return;
+            }
+
+            let data = $("#send-informations-form").serializeArray().reduce(function (obj, item) { // Pega todos os dados do formulário e coloca em um objeto.
+                obj[item.name] = item.value;
+                return obj;
+            }, {});
+            data['subjects'] = this.subjectArray;
+            data['tel'] = telInputFunctions.getTelInputValue();
+            this.finalizeContact();
+            console.log(data)
         },
         goToNextStep: function () {
-            this.select_subject = false;
-            console.log(this.subjectArray);
+            let contactFormsContainer = $(".forms-contact");
+            let sendContact = $(".send-contact-form");
+            let contentContainer = $("#content");
+            let currentHeight = contentContainer.height();
+            contactFormsContainer.addClass("animate__bounceOutLeft");
+            setTimeout(() => {
+                contentContainer.css("min-height", currentHeight);
+                contactFormsContainer.hide();
+                sendContact.show();
+                sendContact.addClass("animate__bounceInRight");
+
+                const scrollTop = $("body").scrollTop();
+                let targetOffset = $(".contact-component").offset().top + scrollTop;
+                $('html, body').animate({scrollTop: targetOffset}, 1000);
+            }, 300)
         },
         addSubject: function (event) {
             if (this.subjectArray.indexOf(event) == -1) {
@@ -87,6 +176,18 @@ export default {
                 this.showNextButton = false;
             }
         }
+    },
+    mounted: function () {
+        this.lottieAnimation = lottie.loadAnimation({
+            container: this.$refs.lottieContainer,
+            renderer: "svg",
+            loop: true,
+            autoplay: true,
+            animationData: animationData
+        });
+    },
+    destroyed() {
+        this.lottieAnimation.destroy();
     }
 }
 </script>
@@ -102,9 +203,69 @@ export default {
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
-.next-button {
+.send-contact-form, .contact-success {
+    display: none;
+}
+
+.contact-form-container-button {
     opacity: 0;
+}
+
+.contact-content {
+    margin: 2rem 0;
+}
+
+.button-wrapper {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+}
+
+.contact-form-container-button {
+    border: 1px solid var(--gray-high);
+    width: 300px;
+    height: 200px;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.4s;
+    margin: 1rem;
+    z-index: 2;
+}
+
+    .contact-form-container-button:hover {
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+.disabled-field {
+    filter: grayscale(100%);
+    cursor: initial;
+}
+
+.contact-icon {
+    font-size: 3rem;
+}
+
+.success-animation {
+    width: calc(10rem + 10vw);
+}
+
+.contact-success {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button {
+    width: 100%;
 }
 </style>

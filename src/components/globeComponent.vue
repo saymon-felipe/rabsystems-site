@@ -67,6 +67,10 @@ export default {
         }
 
         function onDocumentTouchStart(event) {
+            if (event.target != "canvas") {
+                return;
+            }
+
             if (event.touches.length === 1) {
                 event.preventDefault();
 
@@ -76,6 +80,10 @@ export default {
         }
 
         function onDocumentTouchMove(event) {
+            if (event.target != "canvas") {
+                return;
+            }
+
             if (event.touches.length === 1) {
                 event.preventDefault();
 
@@ -123,6 +131,10 @@ export default {
         }
 
         function onDocumentMouseMove(event) {
+            if (event.target != "canvas") {
+                return;
+            }
+
             mouseX = event.clientX - windowHalfX;
 
             targetRotation = targetRotationOnMouseDown + (mouseX - mouseXOnMouseDown) * 0.02;

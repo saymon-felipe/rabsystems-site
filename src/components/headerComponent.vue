@@ -95,7 +95,7 @@ export default {
     margin: auto;
     z-index: 5;
     width: 100vw;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.8);
 } 
 
 .header-content {
