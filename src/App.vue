@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <homePage />
+    <vue-scroll>
+      <homePage />
+    </vue-scroll>
   </div>
 </template>
 
@@ -19,4 +21,7 @@ export default {
 </script>
 
 <style>
+#app {
+  height: 100vh;
+}
 </style>

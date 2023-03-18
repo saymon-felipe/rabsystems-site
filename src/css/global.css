@@ -27,6 +27,10 @@ body {
     background: var(--white);
 }
 
+.__bar-is-vertical {
+    background: var(--purple) !important;
+}
+
 h1, h2, h3, h4 {
     color: var(--black);
 }

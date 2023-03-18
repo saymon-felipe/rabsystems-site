@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import App from './App.vue';
 import $ from 'jquery';
+import vuescroll from 'vuescroll';
 
 Vue.config.productionTip = false;
+Vue.component('vue-scroll', vuescroll);
 
 new Vue({
   render: h => h(App),
@@ -14,9 +16,12 @@ if ($(document).length) {
     e.preventDefault();
 
     let target = $(e.currentTarget.attributes.href.nodeValue);
-    const scrollTop = $("body").scrollTop();
+    const scrollTop = $(".__panel").scrollTop();
     let targetOffset = target.offset().top + scrollTop - 50;
     $('html, body').animate({scrollTop: targetOffset}, 700);
+      $(".__panel").animate({
+        scrollTop: targetOffset
+      }, 700);
   });
 
   $("html, body").on("scroll", () => {
