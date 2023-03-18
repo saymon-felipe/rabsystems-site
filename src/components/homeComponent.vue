@@ -1,12 +1,12 @@
 <template>
-    <div class="home-component-container">
+    <div class="home-component-container" id="home-component">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="home-text">
                         <h1>Soluções web <br> modernas e <br> personalizadas <br> para você</h1>
                         <h3>Crie uma presença online moderna e personalizada com a Rabsystems, sua agência web.</h3>
-                        <button class="btn btn-primary">Solicitar orçamento</button>
+                        <button class="btn btn-primary" v-on:click="goToContactComponent()">Solicitar orçamento</button>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-12">
@@ -20,9 +20,11 @@
 </template>
 <script>
 import globeComponent from "./globeComponent.vue";
+import { globalMethods } from '../assets/js/globalMethods.js';
 
 export default {
     name: "homeComponent",
+    mixins: [globalMethods],
     components: {
         globeComponent
     }

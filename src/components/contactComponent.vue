@@ -1,5 +1,5 @@
 <template>
-    <div class="contact-component">
+    <div class="contact-component" id="contact-component">
         <div class="container" id="content">
             <h2>Entre em contato e impulsione seu negócio hoje!</h2>
             <div class="contact-content">

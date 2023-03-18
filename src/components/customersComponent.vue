@@ -1,5 +1,5 @@
 <template>
-    <div class="customers-container">
+    <div class="customers-container" id="customers-component">
         <div class="container">
             <h2>Clientes que confiam <br> em nossa empresa</h2>
             <div class="row">

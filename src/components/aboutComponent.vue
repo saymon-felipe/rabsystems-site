@@ -1,5 +1,5 @@
 <template>
-    <div class="about-component">
+    <div class="about-component" id="about-component">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-12">

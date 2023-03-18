@@ -3,32 +3,32 @@
         <div class="container">
             <div class="header-content">
                 <div class="nav-brand">
-                    <a href="#">
+                    <a href="#home-component" v-on:click="toggleMenu()">
                         <img src="../assets/img/rabsystems-logo.png" alt="Logo Rabystems">
                     </a>
                 </div>
                 <nav>
                     <ul>
                         <li>
-                            <a href="#">Home</a>
+                            <a href="#home-component" v-on:click="toggleMenu()">Home</a>
                         </li>
                         <li>
-                            <a href="#">Clientes</a>
+                            <a href="#customers-component" v-on:click="toggleMenu()">Clientes</a>
                         </li>
                         <li>
-                            <a href="#">Serviços</a>
+                            <a href="#services-component" v-on:click="toggleMenu()">Serviços</a>
                         </li>
                         <li>
-                            <a href="#">Contato</a>
+                            <a href="#contact-component" v-on:click="toggleMenu()">Contato</a>
                         </li>
                         <li>
-                            <a href="#">Sobre</a>
+                            <a href="#about-component" v-on:click="toggleMenu()">Sobre</a>
                         </li>
                     </ul>
                 </nav>    
                 <div class="header-action-buttons">
-                    <a href="#">Login</a>
-                    <button class="btn btn-clear-primary">Cadastre-se</button>
+                    <a href="https://app-rabsystems.netlify.app/login" target="_blank">Login</a>
+                    <button class="btn btn-clear-primary" v-on:click="openRegisterPage()">Cadastre-se</button>
                 </div>
             </div>
             <div class="menu-wrapper" v-on:click="toggleMenu()"></div>
@@ -44,6 +44,9 @@ import $ from 'jquery';
 export default {
     name: "headerComponent",
     methods: {
+        openRegisterPage: function () {
+            window.open("https://app-rabsystems.netlify.app/register");
+        },
         toggleMenu: function () {
             let headerContent = $(".header-content");
             let menuWrapper = $(".menu-wrapper");

@@ -1,5 +1,5 @@
 <template>
-    <div class="services-component">
+    <div class="services-component" id="services-component">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 col-sm-12">
@@ -8,7 +8,7 @@
                 <div class="col-md-7 col-sm-12 text-container">
                     <h2>Soluções personalizadas para atender suas necessidades</h2>
                     <p>Criamos soluções personalizadas em programação para atender suas necessidades, trabalhando em conjunto para garantir a excelência em cada etapa do processo de desenvolvimento. Impulsione seu negócio conosco.</p>
-                    <button type="button" class="btn btn-primary">Solicitar orçamento</button>
+                    <button type="button" class="btn btn-primary" v-on:click="goToContactComponent()">Solicitar orçamento</button>
                 </div>
             </div>
         </div>
@@ -17,9 +17,11 @@
 <script>
 import lottie from "lottie-web";
 import animationData from "../assets/animations/solutions-animation.json";
+import { globalMethods } from '../assets/js/globalMethods.js';
 
 export default {
     name: "servicesComponent",
+    mixins: [globalMethods],
     mounted: function () {
         this.lottieAnimation = lottie.loadAnimation({
             container: this.$refs.lottieContainer,
