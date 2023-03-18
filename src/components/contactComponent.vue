@@ -34,7 +34,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Conte-nos sobre seu projeto"></textarea>
+                            <textarea name="description" id="description" cols="30" rows="10" placeholder="Conte-nos sobre seu projeto" maxlength="5000" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary animate__animated" id="send-button">Enviar</button>
                     </form>
@@ -54,6 +54,7 @@ import $ from 'jquery';
 import lottie from "lottie-web";
 import animationData from "../assets/animations/check-animation.json";
 import telInputFunctions from '../assets/js/rabsystemsTelInput.js';
+import api from "../configs/api.js";
 
 export default {
     name: "contactComponent",
@@ -85,9 +86,9 @@ export default {
                     this.firstTime = false;
 
                     if (window.innerWidth < 768) {
-                        const scrollTop = $("body").scrollTop();
+                        const scrollTop = $(".__panel").scrollTop();
                         let targetOffset = $(".button-wrapper").offset().top + scrollTop;
-                        $('html, body').animate({scrollTop: targetOffset}, 1000);
+                        $('.__panel').animate({scrollTop: targetOffset}, 1000);
                     }
 
                     setTimeout(() => {
@@ -122,20 +123,21 @@ export default {
                 contactSuccess.css("display", "flex");
                 contactSuccess.addClass("animate__bounceInRight");
 
-                const scrollTop = $("body").scrollTop();
+                const scrollTop = $(".__panel").scrollTop();
                 let targetOffset = $(".contact-component").offset().top + scrollTop - 50;
-                $('html, body').animate({scrollTop: targetOffset}, 1000);
+                $('.__panel').animate({scrollTop: targetOffset}, 1000);
             }, 300)
         },
         sendContact: function () {
             let telInput = $("#tel-input");
             let response = $(".response");
-            this.response = "";
+            let self = this;
+            self.response = "";
 
             response.removeClass("error");
             if (telInput.attr("is_valid") == "false") {
                 let sendButton = $("#send-button");
-                this.response = "Corrija os erros antes de enviar";
+                self.response = "Corrija os erros antes de enviar";
                 response.addClass("error");
                 sendButton.addClass("animate__headShake");
                 setTimeout(() => {
@@ -148,10 +150,15 @@ export default {
                 obj[item.name] = item.value;
                 return obj;
             }, {});
-            data['subjects'] = this.subjectArray;
+            data['reason'] = self.subjectArray;
             data['tel'] = telInputFunctions.getTelInputValue();
-            this.finalizeContact();
-            console.log(data)
+
+            api.post("/site/contact", data)
+            .then(function(){
+                self.finalizeContact();
+            }).catch(function(error){
+                console.log(error);
+            })
         },
         goToNextStep: function () {
             let contactContent = $(".contact-content");
@@ -171,9 +178,9 @@ export default {
                 sendContact.show();
                 sendContact.addClass("animate__bounceInRight");
 
-                const scrollTop = $("body").scrollTop();
+                const scrollTop = $(".__panel").scrollTop();
                 let targetOffset = $(".contact-component").offset().top + scrollTop - 50;
-                $('html, body').animate({scrollTop: targetOffset}, 1000);
+                $('.__panel').animate({scrollTop: targetOffset}, 1000);
                 contactContent.css("min-height", "fit-content").css("height", "fit-content");
             }, 300)
         },
