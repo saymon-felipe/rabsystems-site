@@ -4,9 +4,11 @@ export let globalMethods = {
     methods: {
         goToComponent: function (componentId) {
             let component = $(componentId);
-            const scrollTop = $("body").scrollTop();
+            const scrollTop = $(".__panel").scrollTop();
             let targetOffset = component.offset().top + scrollTop - 50;
-            $('html, body').animate({scrollTop: targetOffset}, 700);
+            $(".__panel").animate({
+                scrollTop: targetOffset
+            }, 700);
         },
         goToContactComponent: function () {
             this.goToComponent("#contact-component");
