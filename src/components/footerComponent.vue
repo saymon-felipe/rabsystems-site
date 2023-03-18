@@ -3,17 +3,24 @@
         <div class="container">
             <div class="newsletter-container">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
+                    <div class="col-md-6 col-sm-12 newsletter-text-container">
                         <div class="newsletter-text">
                             <h2>Inscreva-se em nossa newsletter</h2>
                             <p>Fique por dentro das novidades, notícias e promoções</p>
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12 newsletter-input-container">
-                        <form @submit.prevent="subscribeToNewsletter()" id="subscribe-newsletter-form">
-                            <input type="email" name="email" id="email" placeholder="Digite seu melhor email" required>
-                            <button type="submit" class="btn btn-primary">Inscrever-se</button>
-                        </form>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="newsletter-input-container animate__animated">
+                            <form @submit.prevent="subscribeToNewsletter()" id="subscribe-newsletter-form">
+                                <input type="email" name="email" id="email" placeholder="Digite seu melhor email" required>
+                                <button type="submit" class="btn btn-primary">Inscrever-se</button>
+                            </form>
+                        </div>
+                        <div class="newsletter-feedback animate__animated">
+                            <h2>Obrigado por se inscrever!</h2>
+                            <p>Agora você não vai perder nenhuma novidade!</p>
+                        </div>
+                        <p class="response">{{ response }}</p>
                     </div>
                 </div>
             </div>
@@ -51,22 +58,47 @@
 <script>
 import $ from 'jquery';
 import { globalMethods } from '../assets/js/globalMethods.js';
+import api from "../configs/api.js";
 
 export default {
     name: "footerComponent",
     mixins: [globalMethods],
     data() {
         return {
-            year: null
+            year: null,
+            response: ""
         }
     },
     methods: {
         subscribeToNewsletter: function () {
+            let self = this;
+            let responseElement = $(".response");
+            let newsletterFormElement = $(".newsletter-input-container");
+            let newsletterFeedbackElement = $(".newsletter-feedback");
+
+            responseElement.removeClass("error");
+            self.response = "";
+
             let data = $("#subscribe-newsletter-form").serializeArray().reduce(function (obj, item) { // Pega todos os dados do formulário e coloca em um objeto.
                 obj[item.name] = item.value;
                 return obj;
             }, {});
-            console.log(data)
+
+            api.post("/site/newsletter", data)
+            .then(function(){
+                newsletterFormElement.addClass("animate__bounceOutLeft");
+                setTimeout(() => {
+                    newsletterFormElement.hide();
+                    newsletterFeedbackElement.show();
+                    setTimeout(() => {
+                        newsletterFeedbackElement.css("opacity", 1);
+                        newsletterFeedbackElement.addClass("animate__bounceInRight");
+                    })
+                }, 400)
+            }).catch(function(error){
+                responseElement.addClass("error");
+                self.response = error.response.data.message;
+            })
         },
         getYear: function () {
             let date = new Date();
@@ -106,6 +138,12 @@ footer {
         margin-left: .5rem;
     }
 
+.newsletter-text-container {
+    position: relative;
+    z-index: 2;
+    background: var(--white);
+}
+
 .footer-logo img {
     width: calc(5rem + 5vw);
     margin-bottom: .7rem;
@@ -143,6 +181,12 @@ footer {
     padding-bottom: 2rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--gray-high);
+}
+
+.newsletter-feedback {
+    display: none;
+    opacity: 0;
+    text-align: right;
 }
 
 @media (max-width: 379px) {
