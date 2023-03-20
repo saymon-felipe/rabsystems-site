@@ -43,10 +43,10 @@
                         </div>
                         <div class="footer-section">
                             <p>Social</p>
-                            <a href="#">Facebook</a>
-                            <a href="#">Instagram</a>
-                            <a href="#">LinkedIn</a>
-                            <a href="#">GitHub</a>
+                            <a href="https://www.facebook.com/profile.php?id=100090468378046" target="_blank">Facebook</a>
+                            <a href="https://www.instagram.com/raabsystems/" target="_blank">Instagram</a>
+                            <a href="https://www.linkedin.com/company/rabsystems/" target="_blank">LinkedIn</a>
+                            <a href="https://github.com/Rab-Systems" target="_blank">GitHub</a>
                         </div>
                     </div>
                 </div>

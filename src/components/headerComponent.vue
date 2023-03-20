@@ -99,6 +99,7 @@ export default {
     z-index: 5;
     width: 100vw;
     background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(2px);
 } 
 
 .header-content {
