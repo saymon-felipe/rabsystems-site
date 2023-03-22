@@ -8,7 +8,7 @@ Vue.config.productionTip = false;
 Vue.component('vue-scroll', vuescroll);
 
 Vue.use(VueAnalytics, {
-  id: 'G-8DBD8MLSGL'
+  id: 'G-FCSXXGM5GR'
 });
 
 new Vue({
