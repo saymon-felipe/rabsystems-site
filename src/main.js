@@ -2,14 +2,9 @@ import Vue from 'vue';
 import App from './App.vue';
 import $ from 'jquery';
 import vuescroll from 'vuescroll';
-import VueAnalytics from 'vue-analytics';
 
 Vue.config.productionTip = false;
 Vue.component('vue-scroll', vuescroll);
-
-Vue.use(VueAnalytics, {
-  id: 'G-8DBD8MLSGL'
-});
 
 new Vue({
   render: h => h(App),
