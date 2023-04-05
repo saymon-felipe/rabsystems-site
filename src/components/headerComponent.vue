@@ -199,7 +199,7 @@ nav ul li a, .header-action-buttons a {
     min-width: 250px;
     max-width: 1000px;
     position: fixed;
-    top: 0;
+    top: 50vh;
     bottom: 0;
     left: 0;
     margin: auto;
@@ -209,6 +209,7 @@ nav ul li a, .header-action-buttons a {
     transition: transform 0.4s;
     background: var(--white);
     z-index: 3;
+    height: 100vh;
 }
 
     .responsive-menu nav ul {
@@ -231,7 +232,7 @@ nav ul li a, .header-action-buttons a {
 .menu-wrapper {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
-    top: 0;
+    top: 50vh;
     bottom: 0;
     left: 0;
     right: 0;
