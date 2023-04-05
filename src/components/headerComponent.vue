@@ -27,7 +27,7 @@
                     </ul>
                 </nav>    
                 <div class="header-action-buttons">
-                    <a href="https://app-rabsystems.netlify.app/login" target="_blank">Login</a>
+                    <a href="https://app.rabsystems.com.br/login" target="_blank">Login</a>
                     <button class="btn btn-clear-primary" v-on:click="openRegisterPage()">Cadastre-se</button>
                 </div>
             </div>
@@ -45,7 +45,7 @@ export default {
     name: "headerComponent",
     methods: {
         openRegisterPage: function () {
-            window.open("https://app-rabsystems.netlify.app/register");
+            window.open("https://app.rabsystems.com.br/register");
         },
         toggleMenu: function () {
             let headerContent = $(".header-content");
