@@ -118,6 +118,8 @@ export default {
             let contactSuccess = $(".contact-success");
             sendContact.addClass("animate__bounceOutLeft");
 
+            fbq('track', 'Contact');
+
             setTimeout(() => {
                 sendContact.hide();
                 contactSuccess.css("display", "flex");
