@@ -39,6 +39,7 @@ export default {
 <style scoped>
 .home-page {
     height: 100vh;
+    width: 100vw;
 }
 
 .go-up {
