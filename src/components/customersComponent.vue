@@ -18,9 +18,14 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-6">
                                 <a target="_blank" href="https://cademint.netlify.app">
                                     <img src="../assets/img/customers/cademint-logo.png" alt="Logo Cademint" title="Cademint">
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a target="_blank" href="https://ieq-farol.netlify.app/">
+                                    <img src="../assets/img/customers/ieq-farol-logo.png" alt="Logo IEQ Farol" title="IEQ Farol">
                                 </a>
                             </div>
                         </div>
