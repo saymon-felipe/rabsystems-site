@@ -1,22 +1,18 @@
 <template>
   <div id="app">
     <vue-scroll>
-      <homePage />
+      <router-view path="$router.key" />
     </vue-scroll>
   </div>
 </template>
 
 <script>
 import './css/global.css';
-import homePage from "./pages/homePage.vue";
 import './assets/css/rabsystemsTelInput.css';
 import './assets/js/rabsystemsTelInput.js';
 
 export default {
-  name: 'App',
-  components: {
-    homePage
-  }
+  name: 'App'
 }
 </script>
 

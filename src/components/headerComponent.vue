@@ -3,12 +3,12 @@
         <div class="container">
             <div class="header-content">
                 <div class="nav-brand">
-                    <a href="#home-component" v-on:click="toggleMenu()">
-                        <img src="../assets/img/rabsystems-logo.png" alt="Logo Rabystems">
-                    </a>
+                    <router-link to="/" v-on:click="toggleMenu('brand')">
+                        <img src="../assets/img/rabsystems-logo.png" alt="Logo Rabystems" />
+                    </router-link>
                 </div>
                 <nav>
-                    <ul>
+                    <ul v-if="showLinks != false">
                         <li>
                             <a href="#home-component" v-on:click="toggleMenu()">Home</a>
                         </li>
@@ -43,11 +43,12 @@ import $ from 'jquery';
 
 export default {
     name: "headerComponent",
+    props: ["showLinks"],
     methods: {
         openRegisterPage: function () {
             window.open("https://app.rabsystems.com.br/register");
         },
-        toggleMenu: function () {
+        toggleMenu: function (clickType = '') {
             let headerContent = $(".header-content");
             let menuWrapper = $(".menu-wrapper");
             if (headerContent.hasClass("responsive-menu")) {
@@ -60,6 +61,9 @@ export default {
                     headerContent.addClass("menu-opened");
                     menuWrapper.show();
                 }
+            }
+            if (clickType == 'brand') {
+                window.location.reload();
             }
         },
         checkWindowWidth: function () {

@@ -37,12 +37,9 @@
                             <textarea name="description" id="description" cols="30" rows="10" placeholder="Conte-nos sobre seu projeto" maxlength="5000" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary animate__animated" id="send-button">Enviar</button>
+                        <div class="loading"></div>
                     </form>
                     <p class="response">{{ response }}</p>
-                </div>
-                <div class="contact-success animate__animated">
-                    <div ref="lottieContainer" class="success-animation"></div>
-                    <h3>Sua mensagem foi enviada! <br> Responderemos em breve</h3>
                 </div>
             </div>
         </div>
@@ -51,8 +48,6 @@
 <script>
 import contactFormComponent from "./contactFormComponent.vue";
 import $ from 'jquery';
-import lottie from "lottie-web";
-import animationData from "../assets/animations/check-animation.json";
 import telInputFunctions from '../assets/js/rabsystemsTelInput.js';
 import api from "../configs/api.js";
 
@@ -113,34 +108,22 @@ export default {
                 }, 800)
             }
         },
-        finalizeContact: function () {
-            let sendContact = $(".send-contact-form");
-            let contactSuccess = $(".contact-success");
-            sendContact.addClass("animate__bounceOutLeft");
-
-            window.fbq('track', 'Contact');
-
-            setTimeout(() => {
-                sendContact.hide();
-                contactSuccess.css("display", "flex");
-                contactSuccess.addClass("animate__bounceInRight");
-
-                const scrollTop = $(".__panel").scrollTop();
-                let targetOffset = $(".contact-component").offset().top + scrollTop - 50;
-                $('.__panel').animate({scrollTop: targetOffset}, 1000);
-            }, 300)
-        },
         sendContact: function () {
             let telInput = $("#tel-input");
             let response = $(".response");
+            let loading = $(".loading");
             let self = this;
+            let sendButton = $("#send-button");
+            sendButton.attr("disabled", "disabled");
             self.response = "";
+            loading.show();
 
             response.removeClass("error");
             if (telInput.attr("is_valid") == "false") {
-                let sendButton = $("#send-button");
                 self.response = "Corrija os erros antes de enviar";
                 response.addClass("error");
+                sendButton.attr("disabled", false);
+                loading.hide();
                 sendButton.addClass("animate__headShake");
                 setTimeout(() => {
                     sendButton.removeClass("animate__headShake");
@@ -154,10 +137,12 @@ export default {
             }, {});
             data['reason'] = self.subjectArray;
             data['tel'] = telInputFunctions.getTelInputValue();
-
+            
             api.post("/site/contact", data)
             .then(function(){
-                self.finalizeContact();
+                loading.hide();
+                sendButton.attr("disabled", false);
+                self.$router.push("/thanks");
             }).catch(function(error){
                 console.log(error);
             })
@@ -199,18 +184,6 @@ export default {
                 this.showNextButton = false;
             }
         }
-    },
-    mounted: function () {
-        this.lottieAnimation = lottie.loadAnimation({
-            container: this.$refs.lottieContainer,
-            renderer: "svg",
-            loop: true,
-            autoplay: true,
-            animationData: animationData
-        });
-    },
-    destroyed() {
-        this.lottieAnimation.destroy();
     }
 }
 </script>
@@ -274,10 +247,6 @@ export default {
 
 .contact-icon {
     font-size: 3rem;
-}
-
-.success-animation {
-    width: calc(10rem + 10vw);
 }
 
 .contact-success {
