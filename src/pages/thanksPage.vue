@@ -41,7 +41,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: calc(100vw - 903px);
+    min-height: calc(100vh - 903px);
 }
 
 .success-animation {
