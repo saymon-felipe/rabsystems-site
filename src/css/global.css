@@ -27,6 +27,11 @@ body {
     background: var(--white);
 }
 
+.btn-primary i {
+    margin-left: 5px;
+    font-size: 1rem;
+}
+
 .__bar-is-vertical {
     background: var(--purple) !important;
 }

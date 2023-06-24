@@ -25,9 +25,9 @@ if ($(document).length) {
     }, 700);
   });
 
-  $("html, body").on("scroll", () => {
+  $(".__panel").on("scroll", () => {
     let element = $(".go-up");
-    if (document.body.scrollTop > 100) {
+    if ($(".__panel").scrollTop() > 100) {
       element.css("display", "flex");
     } else {
       element.hide();

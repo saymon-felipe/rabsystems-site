@@ -8,7 +8,10 @@
                 <div class="col-md-7 col-sm-12 text-container">
                     <h2>Soluções personalizadas para atender suas necessidades</h2>
                     <p>Criamos soluções personalizadas em programação para atender suas necessidades, trabalhando em conjunto para garantir a excelência em cada etapa do processo de desenvolvimento. Impulsione seu negócio conosco.</p>
-                    <button type="button" class="btn btn-primary" v-on:click="goToContactComponent()">Solicitar orçamento</button>
+                    <button class="btn btn-primary" v-on:click="goToContactComponent()">
+                        Orçamento gratuito
+                        <i class="fas fa-angle-right"></i>
+                    </button>
                 </div>
             </div>
         </div>

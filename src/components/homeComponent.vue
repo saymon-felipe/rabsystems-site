@@ -4,9 +4,12 @@
             <div class="row">
                 <div class="col-md-5 col-sm-12">
                     <div class="home-text">
-                        <h1>Soluções web <br> modernas e <br> personalizadas <br> para você</h1>
-                        <h3>Crie uma presença online moderna e personalizada com a Rabsystems, sua agência web.</h3>
-                        <button class="btn btn-primary" v-on:click="goToContactComponent()">Solicitar orçamento</button>
+                        <h1>Transformando <br> ideias em sites <br>e sistemas web</h1>
+                        <h3>Especializados em soluções web personalizadas. Sites profissionais, sistemas robustos e design de qualidade. Seu sucesso online conosco!</h3>
+                        <button class="btn btn-primary" v-on:click="goToContactComponent()">
+                            Orçamento gratuito
+                            <i class="fas fa-angle-right"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-12">
