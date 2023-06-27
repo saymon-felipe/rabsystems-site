@@ -41,7 +41,7 @@ export default {
 </script>
 <style scoped>
 .services-component {
-    padding: 7rem 0;
+    padding: 2rem 0;
 }
 
 .text-container {
