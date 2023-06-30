@@ -5,7 +5,10 @@
                 <div class="col-md-5 col-sm-12">
                     <div class="home-text">
                         <h1>Transformando <br> ideias em sites <br>e sistemas web</h1>
-                        <h3>Especializados em soluções web personalizadas. Sites profissionais, sistemas robustos e design de qualidade. Seu sucesso online conosco!</h3>
+                        <div class="principal-text">
+                            <h3>Especializados em soluções web personalizadas. Sites profissionais, sistemas robustos e design de qualidade. Seu sucesso online conosco!</h3>
+                            <p>Também fazemos manutenção de sites e sistemas</p>
+                        </div>
                         <button class="btn btn-primary" v-on:click="goToContactComponent()">
                             Orçamento gratuito
                             <i class="fas fa-angle-right"></i>
@@ -53,21 +56,28 @@ export default {
         margin-bottom: 2rem;
     }
 
-    .home-text h3 {
-        margin-bottom: 3rem;
+.principal-text {
+    margin-bottom: 3rem;
+}
+
+    .principal-text p {
+        margin: 0;
     }
 
 @media (max-width: 1400px) {
-    .home-text h3 {
+    .principal-text {
         background-image: linear-gradient(to right, var(--blue), var(--purple));
         padding: 1rem;
         border-radius: 5px;
+    }
+
+    .principal-text h3, .principal-text p {
         color: var(--white) !important;
     }
 }
 
 @media (max-width: 998px) {
-    .home-text h3 {
+    .principal-text {
         background-image: none;
         padding: 0;
         border-radius: 0;
