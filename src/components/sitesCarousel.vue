@@ -10,6 +10,9 @@
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cademint-system-thumb.png" dataTargetLink="app-cademint.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/gourmetech-thumb.jpg" dataTargetLink="dev.gourmetech.com.br" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/solutto-thumb.png" dataTargetLink="solutto.com.br" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
@@ -19,7 +22,7 @@
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/ieq-farol-thumbs.png" dataTargetLink="ieq-farol.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/saymon-portfolio-thumb.png" dataTargetLink="saymonfelipe.com.br" v-on:click="expandImage($event)" />
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/saymon-felipe-thumb.jpg" dataTargetLink="saymonfelipe.com.br" v-on:click="expandImage($event)" />
                 </div>
             </div>
 

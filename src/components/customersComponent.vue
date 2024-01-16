@@ -17,6 +17,9 @@
                         <a target="_blank" href="https://ieq-farol.netlify.app/">
                             <img src="../assets/img/customers/ieq-farol-logo.png" alt="Logo IEQ Farol" title="IEQ Farol">
                         </a>
+                        <a target="_blank" href="https://dev.gourmetech.com.br/">
+                            <img src="../assets/img/customers/logo-gourmetech.svg" style="margin-bottom: -60px;" alt="Logo Gourmetech" title="Gourmetech">
+                        </a>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12" style="display: none;">
