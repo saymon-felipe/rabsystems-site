@@ -4,9 +4,9 @@
             <h2>Entre em contato e impulsione seu negócio hoje!</h2>
             <div class="contact-content">
                 <div class="forms-contact animate__animated">
-                    <contactFormComponent @selected_subject="addSubject($event)" object_id="site_design" icon="<i class='fas fa-pen-nib'></i>" contact_title="Design de sites" contact_description="Preciso de um design para o meu site" />
-                    <contactFormComponent @selected_subject="addSubject($event)" object_id="site_development" icon="<i class='fas fa-code'></i>" contact_title="Desenvolvimento de sites" contact_description="Preciso da construção de um site completo" />
-                    <contactFormComponent @selected_subject="addSubject($event)" object_id="maintenance" icon="<i class='fas fa-cog'></i>" contact_title="Manutenção de sites e sistemas" contact_description="Preciso de manutenção em um projeto já existente" />
+                    <contactFormComponent @selected_subject="addSubject($event)" object_id="site_design" icon="<i class='fas fa-pen-nib'></i>" contact_title="Design de sites" contact_description="Conquiste visibilidade e atraia novos clientes com nosso serviço de criação e design de sites" />
+                    <contactFormComponent @selected_subject="addSubject($event)" object_id="traffic_management" icon="<i class='fas fa-chart-line'></i>" contact_title="Gestão de tráfego" contact_description="Amplie sua visibilidade, atraia clientes e otimize conversões online rapidamente.Preciso da construção de um site completo" />
+                    <contactFormComponent @selected_subject="addSubject($event)" object_id="maintenance" icon="<i class='fas fa-cog'></i>" contact_title="Manutenção de sites e sistemas" contact_description="Conte com nosso serviço para melhorar o desempenho de seus projetos já existentes" />
                     <contactFormComponent @selected_subject="addSubject($event)" object_id="others" icon="<i class='fas fa-question'></i>" contact_title="Outro assunto" contact_description="Fale conosco, estamos aqui para ajudar!" />
                     <button type="button" class="contact-form-container-button btn-primary animate__animated" :class="!showNextButton ? 'disabled-field' : ''" v-on:click="handleClickNextButton()">
                         <i class='fas fa-check contact-icon'></i>
