@@ -2,17 +2,19 @@
     <div class="home-component-container" id="home-component">
         <div class="container">
             <div class="row">
-                <div class="col-md-5 col-sm-12">
+                <div class="col-md-5 col-sm-12 home-text-container">
                     <div class="home-text">
                         <h1>Transformando <br> ideias em sites <br>e sistemas web</h1>
-                        <div class="principal-text">
-                            <h3>Especializados em soluções web personalizadas. Sites profissionais, sistemas robustos e design de qualidade. Seu sucesso online conosco!</h3>
-                            <p>Também fazemos manutenção de sites e sistemas</p>
+                        <div>
+                            <div class="principal-text">
+                                <h3>Especializados em soluções web personalizadas. Sites profissionais, sistemas robustos e design de qualidade. Seu sucesso online conosco!</h3>
+                                <p>Também fazemos manutenção de sites e sistemas</p>
+                            </div>
+                            <button class="btn btn-primary" v-on:click="goToContactComponent()">
+                                Orçamento gratuito
+                                <i class="fas fa-angle-right"></i>
+                            </button>
                         </div>
-                        <button class="btn btn-primary" v-on:click="goToContactComponent()">
-                            Orçamento gratuito
-                            <i class="fas fa-angle-right"></i>
-                        </button>
                     </div>
                 </div>
                 <div class="col-md-7 col-sm-12">
@@ -81,7 +83,14 @@ export default {
         background-image: none;
         padding: 0;
         border-radius: 0;
+    }
+
+    .principal-text h3, .principal-text p {
         color: var(--black) !important;
+    }
+
+    .home-text-container {
+        width: 100% !important;
     }
 }
 </style>

@@ -2,7 +2,6 @@
     <div class="sites-carousel">
         <div ref="swiper" class="swiper">
             <div class="swiper-wrapper">
-                
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cademint-thumb.png" dataTargetLink="cademint.netlify.app" v-on:click="expandImage($event)" />
                 </div>
@@ -19,13 +18,15 @@
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/mokaly-thumb.png" dataTargetLink="mokaly.com" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/envidrace-thumb.jpg" dataTargetLink="envidrace.com.br" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/ieq-farol-thumbs.png" dataTargetLink="ieq-farol.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/saymon-felipe-thumb.jpg" dataTargetLink="saymonfelipe.com.br" v-on:click="expandImage($event)" />
                 </div>
             </div>
-
             <div class="swiper-scrollbar"></div>
         </div>
         <div class="image-modal">
