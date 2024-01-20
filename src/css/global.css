@@ -181,6 +181,11 @@ input:focus, textarea:focus {
         outline: 2px solid var(--purple-low);
     }
 
+.swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right {
+    background-image: none !important;
+    background-color: var(--gray-high);
+}
+
 /* ESTILOS GLOBO HOME */
 
 .globe-container {
