@@ -36,22 +36,23 @@
                         <div class="footer-section">
                             <p>Produtos</p>
                             <a href="https://cademint.netlify.app" target="_blank">Cademint</a>
+                            <a href="https://dev.gourmetech.com.br" target="_blank">Gourmetech</a>
                         </div>
                         <div class="footer-section">
                             <p>Parcerias</p>
-                            <a href="#">Avejo</a>
+                            <a href="https://www.facebook.com/joaojunior.jj" target="_blank">João Marques</a>
                         </div>
                         <div class="footer-section">
                             <p>Social</p>
-                            <a href="https://www.facebook.com/profile.php?id=100090468378046" target="_blank">Facebook</a>
                             <a href="https://www.instagram.com/raabsystems/" target="_blank">Instagram</a>
                             <a href="https://www.linkedin.com/company/rabsystems/" target="_blank">LinkedIn</a>
                             <a href="https://github.com/Rab-Systems" target="_blank">GitHub</a>
+                            <a href="https://www.facebook.com/profile.php?id=100090468378046" target="_blank">Facebook</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <p>&copy; {{ year }} Rabsystems. Todos os direitos reservados</p>
+            <h6>&copy; {{ year }} Rabsystems. Todos os direitos reservados</h6>
         </div>
     </footer>
 </template>
