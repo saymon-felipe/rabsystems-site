@@ -138,7 +138,8 @@ export default {
             }, {});
             data['reason'] = self.subjectArray;
             data['tel'] = telInputFunctions.getTelInputValue();
-            
+            data['discount'] = $("#discount-input").val();
+
             api.post("/site/contact", data)
             .then(function(){
                 loading.hide();
