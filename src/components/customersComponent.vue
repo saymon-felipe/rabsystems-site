@@ -6,19 +6,22 @@
                 <div class="col-12">
                     <div class="customers-logo">
                         <a target="_blank" href="https://www.solutto.com.br">
-                            <img src="../assets/img/customers/solutto-logo.png" alt="Logo Solutto" title="Solutto">
+                            <img src="../assets/img/customers/solutto-logo.png" alt="Solutto" title="Solutto">
                         </a>
                         <a target="_blank" href="https://www.mokaly.com">
-                            <img src="../assets/img/customers/mokaly-logo.png" alt="Logo Mokaly" title="Mokaly">
+                            <img src="../assets/img/customers/mokaly-logo.png" alt="Mokaly" title="Mokaly">
                         </a>
                         <a target="_blank" href="https://cademint.netlify.app">
-                            <img src="../assets/img/customers/cademint-logo.png" alt="Logo Cademint" title="Cademint">
-                        </a>
-                        <a target="_blank" href="https://ieq-farol.netlify.app/">
-                            <img src="../assets/img/customers/ieq-farol-logo.png" alt="Logo IEQ Farol" title="IEQ Farol">
+                            <img src="../assets/img/customers/cademint-logo.png" alt="Cademint" title="Cademint">
                         </a>
                         <a target="_blank" href="https://dev.gourmetech.com.br/">
-                            <img src="../assets/img/customers/logo-gourmetech.svg" style="margin-bottom: -60px;" alt="Logo Gourmetech" title="Gourmetech">
+                            <img src="../assets/img/customers/logo-gourmetech.svg" alt="Gourmetech" title="Gourmetech">
+                        </a>
+                        <a target="_blank" href="https://ieq-farol.netlify.app/">
+                            <img src="../assets/img/customers/ieq-farol-logo.png" alt="IEQ Farol" title="IEQ Farol">
+                        </a>
+                        <a target="_blank" href="https://www.envidrace.com.br">
+                            <img src="../assets/img/customers/logo-envidrace.png" alt="Envidrace" title="Envidrace">
                         </a>
                     </div>
                 </div>
@@ -75,5 +78,24 @@ export default {
 
     .customers-logo a {
         margin: 10px;
+        width: 160px;
+        height: 70px;
+        border: 1px solid var(--gray-high);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px 15px;
+        transition: all 0.4s;
     }
+
+        .customers-logo a:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .customers-logo a img {
+            object-fit: contain;
+            height: 100%;
+            width: 100%;
+        }
 </style>

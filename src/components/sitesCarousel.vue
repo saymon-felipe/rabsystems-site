@@ -2,7 +2,6 @@
     <div class="sites-carousel">
         <div ref="swiper" class="swiper">
             <div class="swiper-wrapper">
-                
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cademint-thumb.png" dataTargetLink="cademint.netlify.app" v-on:click="expandImage($event)" />
                 </div>
@@ -19,13 +18,19 @@
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/mokaly-thumb.png" dataTargetLink="mokaly.com" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/envidrace-thumb.jpg" dataTargetLink="envidrace.com.br" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/ieq-farol-thumbs.png" dataTargetLink="ieq-farol.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/saymon-felipe-thumb.jpg" dataTargetLink="saymonfelipe.com.br" v-on:click="expandImage($event)" />
                 </div>
             </div>
+            <div class="swiper-pagination"></div>
 
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
             <div class="swiper-scrollbar"></div>
         </div>
         <div class="image-modal">
@@ -35,8 +40,10 @@
     </div>
 </template>
 <script>
-import Swiper, { EffectCoverflow } from 'swiper';
+import Swiper, { Navigation, Pagination, EffectCoverflow } from 'swiper';
 import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 import "swiper/css/effect-coverflow";
 import 'swiper/css/autoplay';
 import $ from 'jquery';
@@ -73,10 +80,18 @@ export default {
     },
     mounted: function () {
         this.swiper = new Swiper(this.$refs.swiper, {
-            modules: [EffectCoverflow],
+            modules: [Navigation, Pagination, EffectCoverflow],
             loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true
+            },
             scrollbar: {
                 el: '.swiper-scrollbar',
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
             },
             slidesPerView: 1,
             centeredSlides: true,
