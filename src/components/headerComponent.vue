@@ -1,6 +1,6 @@
 <template>
     <div class="header-container">
-        <div class="container">
+        <div class="container d-flex align-items-center justify-content-between">
             <div class="header-content">
                 <div class="nav-brand">
                     <router-link to="/" v-on:click="toggleMenu('brand')">
@@ -32,6 +32,9 @@
                 </div>
             </div>
             <div class="menu-wrapper" v-on:click="toggleMenu()"></div>
+            <router-link to="/" v-on:click="toggleMenu('brand')" class="responsive-menu-brand">
+                <img src="../assets/img/rabsystems-icon.png" alt="Logo Rabystems" />
+            </router-link>
             <div class="responsive-menu-icon" v-on:click="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </div>
@@ -125,10 +128,11 @@ nav {
         display: flex;
         align-items: center;
         margin: 0;
+        padding: 0;
     }
 
         nav ul li {
-            margin: .7rem;
+            margin: .5rem;
         }
 
             nav ul li a {
@@ -246,6 +250,15 @@ nav ul li a, .header-action-buttons a {
     display: none;
 }
 
+.responsive-menu-brand {
+    display: none;
+    float: left;
+}
+
+    .responsive-menu-brand img {
+        width: 2em;
+    }
+
 @media (max-width: 998px) {
     .responsive-menu-icon {
         display: block;
@@ -258,6 +271,10 @@ nav ul li a, .header-action-buttons a {
 
     .header-content {
         display: none;
+    }
+
+    .responsive-menu-brand {
+        display: block;
     }
 }
 </style>

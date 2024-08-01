@@ -81,6 +81,9 @@ export default {
         background-image: none;
         padding: 0;
         border-radius: 0;
+    }
+
+    .principal-text h3, .principal-text p {
         color: var(--black) !important;
     }
 }

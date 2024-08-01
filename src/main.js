@@ -17,11 +17,11 @@ if ($(document).length) {
 
     e.preventDefault();
 
-    let target = $(e.currentTarget.attributes.href.nodeValue);
+    let component = $(e.currentTarget.attributes.href.nodeValue);
     const scrollTop = $(".__panel").scrollTop();
-    let targetOffset = target.offset().top + scrollTop - 50;
+    let targetOffset = component.offset().top + scrollTop - 50;
     $(".__panel").animate({
-      scrollTop: targetOffset
+        scrollTop: targetOffset
     }, 700);
   });
 
