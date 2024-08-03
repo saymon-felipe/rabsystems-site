@@ -135,6 +135,12 @@ export default {
             data['reason'] = self.subjectArray;
             data['tel'] = telInputFunctions.getTelInputValue();
             data['discount'] = $("#discount-input").val();
+
+            let url = new URLSearchParams(window.location.search);
+            let utmSource = url.get("utm_source");
+
+            data['utm_source'] = utmSource;
+            
             self.$router.push("/thanks");
             api.post("/site/contact", data)
             .then(function(){

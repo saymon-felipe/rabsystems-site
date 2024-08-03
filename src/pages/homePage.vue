@@ -12,7 +12,7 @@
         </div>
         <input type="hidden" id="discount-input" v-model="discount_value">
         <div class="discount-message" v-if="showDiscount">
-            <p>Últimos chance! Desconto exclusivo em nossos serviços de criação de sites e sistemas. Aproveite antes que acabe!</p>
+            <p>Última chance! Desconto exclusivo em nossos serviços de criação de sites e sistemas. Aproveite antes que acabe!</p>
             <div class="discount-container">
                 <div class="discount-countdown">
                     <div class="hours">
