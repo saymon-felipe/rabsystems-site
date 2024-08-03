@@ -11,8 +11,8 @@ export default {
     mounted: function () {
         let container;
 
-        let camera, scene, renderer;
-        let geometry, material, mesh;
+        let camera, scene, renderer, controls;
+        let geometry, material, texture, mesh;
 
         let targetRotation = 0;
         let targetRotationOnMouseDown = 0;
@@ -22,48 +22,63 @@ export default {
 
         let windowHalfX = window.innerWidth / 2;
 
-        init();
-        let controls = new OrbitControls(camera, renderer.domElement);
-        controls.rotateSpeed = 0.1;
-        controls.enableZoom = false;
+        init().then(() => {
+            animate();
+        });        
 
-        animate();
+        function iniciarCenaComTextura() {
+            return new Promise((resolve) => {
+                material = new THREE.MeshBasicMaterial({
+                    map: texture 
+                });
+
+                mesh = new THREE.Mesh(geometry, material);
+                scene.add(mesh);
+
+                renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+                renderer.setPixelRatio(window.devicePixelRatio);
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setClearColor(0x000000, 0); // Define o fundo como transparente
+                container.appendChild(renderer.domElement);
+
+                document.addEventListener('mousedown', onDocumentMouseDown, false);
+                document.addEventListener('touchstart', onDocumentTouchStart, false);
+                document.addEventListener('touchmove', onDocumentTouchMove, false);
+                document.addEventListener('touchend', onDocumentTouchEnd, false);
+
+                window.addEventListener('resize', onWindowResize, false);
+
+                controls = new OrbitControls(camera, renderer.domElement);
+                controls.rotateSpeed = 0.1;
+                controls.enableZoom = false;
+
+                resolve();
+            })
+        }
 
         function init() {
-            container = document.createElement('div');
-            container.classList.add("globe-container");
-            let globeContainer = document.querySelector(".globe-component");
-            globeContainer.appendChild(container);
+            return new Promise((resolve) => {
+                container = document.createElement('div');
+                container.classList.add("globe-container");
+                let globeContainer = document.querySelector(".globe-component");
+                globeContainer.appendChild(container);
 
-            camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
-            camera.position.z = 400;
+                camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 1, 1000);
+                camera.position.z = 500;
 
-            scene = new THREE.Scene();
+                scene = new THREE.Scene();
 
-            geometry = new THREE.SphereGeometry(200, 64, 64);
+                geometry = new THREE.SphereGeometry(200, 64, 64);
 
-            material = new THREE.MeshBasicMaterial({
-                map: new THREE.TextureLoader().load(require('@/assets/img/earth-background.png'))
-            });
-
-            mesh = new THREE.Mesh(geometry, material);
-
-            //const size = (window.innerHeight / 2) / (window.innerWidth / 2) * 1.7;
-            //mesh.scale.set(1/size, 1/size, 1/size);
-            scene.add(mesh);
-
-            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-            renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setClearColor(0x000000, 0); // Define o fundo como transparente
-            container.appendChild(renderer.domElement);
-
-            document.addEventListener('mousedown', onDocumentMouseDown, false);
-            document.addEventListener('touchstart', onDocumentTouchStart, false);
-            document.addEventListener('touchmove', onDocumentTouchMove, false);
-            document.addEventListener('touchend', onDocumentTouchEnd, false);
-
-            window.addEventListener('resize', onWindowResize, false);
+                texture = new THREE.TextureLoader().load(
+                    require('@/assets/img/earth-background.png'),
+                    function () {
+                        iniciarCenaComTextura().then(() => {
+                            resolve();
+                        });
+                    },
+                );
+            })
         }
 
         function onDocumentTouchStart(event) {
@@ -164,8 +179,8 @@ canvas {
 
 .globe-component {
     position: absolute !important;
-    top: 4rem;
-    right: calc(-45px - 14vw);
+    top: -1rem;
+    right: -29vw;
 }
 
 .globe-component::before {
@@ -187,6 +202,7 @@ canvas {
     border-radius: 50%;
     background-clip: padding-box;
     opacity: 0.3;
+    scale: 0.9;
 }
 
 

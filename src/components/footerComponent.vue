@@ -114,8 +114,7 @@ export default {
 </script>
 <style scoped>
 footer {
-    margin-top: 1rem;
-    padding: 2rem 0;
+    padding-bottom: 1.4rem;
 }
 
 .newsletter-container {
@@ -142,7 +141,6 @@ footer {
 .newsletter-text-container {
     position: relative;
     z-index: 2;
-    background: var(--white);
 }
 
 .footer-logo img {

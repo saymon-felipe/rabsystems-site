@@ -1,8 +1,8 @@
 <template>
     <div class="customers-container" id="customers-component">
         <div class="container">
-            <h2>Clientes que confiam <br> em nossa empresa</h2>
-            <div class="row" >
+            <h2>Clientes que confiam em nós</h2>
+            <div class="row pt-5 pb-4">
                 <div class="col-12">
                     <div class="customers-logo">
                         <a target="_blank" href="https://www.solutto.com.br">
@@ -20,7 +20,7 @@
                         <a target="_blank" href="https://ieq-farol.netlify.app/">
                             <img src="../assets/img/customers/ieq-farol-logo.png" alt="IEQ Farol" title="IEQ Farol">
                         </a>
-                        <a target="_blank" href="https://www.envidrace.com.br">
+                        <a target="_blank" href="https://www.envidrace.com.br" v-if="false">
                             <img src="../assets/img/customers/logo-envidrace.png" alt="Envidrace" title="Envidrace">
                         </a>
                     </div>
@@ -59,7 +59,6 @@ export default {
 </script>
 <style scoped>
 .customers-container {
-    padding-top: 3rem;
     text-align: center;
 }
 
@@ -77,6 +76,7 @@ export default {
 }
 
     .customers-logo a {
+        background: var(--white);
         margin: 10px;
         width: 160px;
         height: 70px;

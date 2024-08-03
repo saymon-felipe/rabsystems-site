@@ -1,9 +1,15 @@
 <template>
-    <main>
+    <main class="section">
         <headerComponent :showLinks="false" />
         <div class="container thanks-container">
-            <div ref="lottieContainer" class="success-animation"></div>
-            <h3>Sua mensagem foi enviada! <br> Responderemos em breve</h3>
+            <div class="row">
+                <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
+                    <div ref="lottieContainer" class="success-animation"></div>
+                </div>
+                <div class="col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
+                    <h3 class="text-sm-center text-md-start"><span style="white-space: nowrap;">Sua mensagem foi enviada!</span> <br> <span class="fw-normal fs-5">Responderemos em breve</span></h3>
+                </div>
+            </div>
         </div>
         <footerComponent />
     </main>
@@ -24,7 +30,7 @@ export default {
         this.lottieAnimation = lottie.loadAnimation({
             container: this.$refs.lottieContainer,
             renderer: "svg",
-            loop: true,
+            loop: false,
             autoplay: true,
             animationData: animationData
         });
@@ -36,12 +42,16 @@ export default {
 }
 </script>
 <style scoped>
+main.section {
+    padding-top: calc(12vh + 2rem);
+}
+
 .thanks-container {
-    margin-top: 5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: calc(100vh - 903px);
+    margin-bottom: 1.4rem;
 }
 
 .success-animation {

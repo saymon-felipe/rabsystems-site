@@ -1,6 +1,6 @@
 <template>
-    <div class="header-container">
-        <div class="container d-flex align-items-center justify-content-between">
+    <div class="header-container" id="header">
+        <div class="container d-flex align-items-center justify-content-between" id="header-container">
             <div class="header-content">
                 <div class="nav-brand">
                     <router-link to="/" v-on:click="toggleMenu('brand')">
@@ -72,14 +72,17 @@ export default {
         checkWindowWidth: function () {
             let headerContent = $(".header-content");
             let menuWrapper = $(".menu-wrapper");
+
             if (window.innerWidth > 998) {
                 headerContent.removeClass("responsive-menu");
                 headerContent.removeClass("menu-closed");
                 headerContent.removeClass("menu-opened");
+                headerContent.appendTo("#header-container");
                 menuWrapper.hide();
             } else {
                 headerContent.addClass("responsive-menu");
                 headerContent.addClass("menu-closed");
+                headerContent.appendTo("#header");
             }
         }
     },
@@ -105,9 +108,12 @@ export default {
     margin: auto;
     z-index: 5;
     width: 100vw;
-    background: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(2px);
 } 
+
+    .header-container > div {
+        background: rgba(255, 255, 255, 0.9);
+        overflow: visible !important;
+    }
 
 .header-content {
     display: flex;
@@ -193,7 +199,7 @@ nav ul li a, .header-action-buttons a {
     }
 
 .menu-closed {
-    transform: translateX(-110%);
+    transform: translateX(-110vw);
 }
 
 .menu-opened {
@@ -207,15 +213,13 @@ nav ul li a, .header-action-buttons a {
     min-width: 250px;
     max-width: 1000px;
     position: fixed;
-    top: 50vh;
-    bottom: 0;
+    top: 0;
     left: 0;
-    margin: auto;
     padding: 1rem;
     justify-content: flex-start;
     box-shadow: 0 0 30px 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s;
-    background: var(--white);
+    background: var(--white) !important;
     z-index: 3;
     height: 100vh;
 }
@@ -240,13 +244,13 @@ nav ul li a, .header-action-buttons a {
 .menu-wrapper {
     background: rgba(0, 0, 0, 0.5);
     position: fixed;
-    top: 50vh;
+    top: 48vh;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
     width: 100vw;
-    height: 100vh;
+    height: 101vh;
     display: none;
 }
 

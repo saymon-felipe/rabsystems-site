@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <vue-scroll :ops="ops">
-      <router-view path="$router.key" />
+        <router-view path="$router.key" style="z-index: 2; position: relative;" />
+        <hexBackground />
     </vue-scroll>
   </div>
 </template>
@@ -10,6 +11,7 @@
 import './css/global.css';
 import './assets/css/rabsystemsTelInput.css';
 import './assets/js/rabsystemsTelInput.js';
+import hexBackground from './components/hexBackground.vue';
 
 export default {
   name: 'App',
@@ -34,12 +36,16 @@ export default {
         }
       }
     }
+  },
+  components: {
+    hexBackground
   }
 }
 </script>
 
 <style>
 #app {
-  height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>

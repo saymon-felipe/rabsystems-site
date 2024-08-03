@@ -1,14 +1,14 @@
 <template>
     <div class="services-component" id="services-component">
         <div class="container">
-            <div class="row">
-                <div class="col-md-5 col-sm-12">
-                    <div ref="lottieContainer"></div>
+            <div class="row flex-column flex-lg-row">
+                <div class="col-lg-6 col-md-12 d-flex align-items-center justify-content-center">
+                    <div ref="lottieContainer" id="lottieContainer"></div>
                 </div>
-                <div class="col-md-7 col-sm-12 text-container">
+                <div class="col-lg-6 col-md-12 text-container mt-md-3 text-center text-lg-start">
                     <h2>Soluções personalizadas para atender suas necessidades</h2>
-                    <p>Criamos soluções personalizadas em programação para atender suas necessidades, trabalhando em conjunto para garantir a excelência em cada etapa do processo de desenvolvimento. Impulsione seu negócio conosco.</p>
-                    <button class="btn btn-primary" v-on:click="goToContactComponent()">
+                    <p>Criamos soluções personalizadas em desenvolvimento de software para atender suas necessidades, trabalhando em conjunto para garantir a excelência em cada etapa do processo de desenvolvimento. Impulsione seu negócio conosco.</p>
+                    <button class="btn btn-primary w-100" v-on:click="goToContactComponent()">
                         Orçamento gratuito
                         <i class="fas fa-angle-right"></i>
                     </button>
@@ -40,15 +40,9 @@ export default {
 }
 </script>
 <style scoped>
-.services-component {
-    padding: 2rem 0;
-}
-
 .text-container {
-    text-align: center;
-    padding: 1rem 2rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-direction: column;
 }
@@ -60,6 +54,10 @@ export default {
     .text-container p {
         margin-bottom: 3rem;
     }
+
+#lottieContainer {
+    max-width: 400px;
+}
 
 @media (max-width: 768px) {
     .row {

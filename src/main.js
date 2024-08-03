@@ -19,7 +19,7 @@ if ($(document).length) {
 
     let component = $(e.currentTarget.attributes.href.nodeValue);
     const scrollTop = $(".__panel").scrollTop();
-    let targetOffset = component.offset().top + scrollTop - 50;
+    let targetOffset = component.offset().top + scrollTop - 150;
     $(".__panel").animate({
         scrollTop: targetOffset
     }, 700);

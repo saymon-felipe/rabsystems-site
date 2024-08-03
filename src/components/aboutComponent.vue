@@ -2,15 +2,16 @@
     <div class="about-component" id="about-component">
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-sm-12">
-                    <div class="text-container">
+                <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                    <div class="text-container text-center text-lg-end">
                         <h2>Descubra o que nos move</h2>
                         <p>
-                            Na <strong>Rabsystems</strong>, acreditamos que cada sonho pode se tornar realidade com as ferramentas e o suporte certos. É por isso que nos dedicamos a criar sites e soluções personalizadas para ajudar nossos clientes a alcançar seus objetivos e fazer a diferença na humanidade. Desde pequenos negócios até grandes empresas, estamos aqui para oferecer as soluções de programação que você precisa para alcançar o sucesso. Junte-se a nós na jornada para realizar seus sonhos e fazer a diferença no mundo.
+                            Na <strong>Rabsystems</strong>, transformamos sonhos em realidade com as ferramentas e o suporte certos. Criamos sites e soluções personalizadas para que você possa alcançar seus objetivos e impactar o mundo. 
+                            Seja para pequenos negócios ou grandes empresas, oferecemos as soluções que você precisa para ter sucesso. Junte-se a nós e realize seus sonhos enquanto faz a diferença.
                         </p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-12">
+                <div class="col-lg-6 col-md-12">
                     <div class="company-logo-container animate__animated animate__pulse animate__infinite animate__slow">
                         <img src="../assets/img/rabsystems-icon.png" alt="Icone Rabsystems" class="img-fluid">
                     </div>
@@ -25,15 +26,12 @@ export default {
 }
 </script>
 <style scoped>
-
-.about-component {
-    padding: 3rem 0;
-}
-
 .company-logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    max-width: 300px;
+    margin: auto;
 }
 
 .text-container {
@@ -42,8 +40,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 3rem;
-    text-align: center;
+    text-align: right;
 }
 
     .text-container h2 {
@@ -53,7 +50,7 @@ export default {
 
 @media (max-width: 768px) {
     .company-logo-container img {
-        width: calc(10rem + 10vw);
+        width: calc(7rem + 5vw);
         margin-top: 2rem;
     }
 

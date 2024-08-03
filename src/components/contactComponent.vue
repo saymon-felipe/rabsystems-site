@@ -5,7 +5,7 @@
             <div class="contact-content">
                 <div class="forms-contact animate__animated">
                     <contactFormComponent @selected_subject="addSubject($event)" object_id="site_design" icon="<i class='fas fa-pen-nib'></i>" contact_title="Design de sites" contact_description="Conquiste visibilidade e atraia novos clientes com nosso serviço de criação e design de sites." />
-                    <contactFormComponent @selected_subject="addSubject($event)" object_id="traffic_management" icon="<i class='fas fa-chart-line'></i>" contact_title="Gestão de tráfego" contact_description="Amplie sua visibilidade, atraia clientes e otimize conversões online rapidamente." />
+                    <contactFormComponent v-if="false" @selected_subject="addSubject($event)" object_id="traffic_management" icon="<i class='fas fa-chart-line'></i>" contact_title="Gestão de tráfego" contact_description="Amplie sua visibilidade, atraia clientes e otimize conversões online rapidamente." />
                     <contactFormComponent @selected_subject="addSubject($event)" object_id="maintenance" icon="<i class='fas fa-cog'></i>" contact_title="Manutenção de sites e sistemas" contact_description="Conte com nosso serviço para melhorar o desempenho de seus projetos já existentes." />
                     <contactFormComponent @selected_subject="addSubject($event)" object_id="others" icon="<i class='fas fa-question'></i>" contact_title="Outro assunto" contact_description="Fale conosco, estamos aqui para ajudar!" />
                     <button type="button" class="contact-form-container-button btn-primary animate__animated" :class="!showNextButton ? 'disabled-field' : ''" v-on:click="handleClickNextButton()">
@@ -67,33 +67,29 @@ export default {
     },
     watch: {
         showNextButton: function () {
-            if (this.firstTime) {
-                if (this.showNextButton) {
-                    let element = $(".contact-form-container-button");
-                    let contentContainer = $(".contact-content");
-                    let currentHeight = contentContainer.height();
+            if (this.firstTime && this.showNextButton) {
+                let element = $(".contact-form-container-button");
+                let contentContainer = $(".contact-content");
+                let currentHeight = contentContainer.height();
 
-                    contentContainer.css("min-height", currentHeight).css("height", currentHeight);
+                contentContainer.css("min-height", currentHeight).css("height", currentHeight);
+                
+                this.firstTime = false;
 
-                    setTimeout(() => {
-                        contentContainer.css("min-height", currentHeight + 200).css("height", currentHeight + 200);
-                    }, 10)
-                    
-                    this.firstTime = false;
-
-                    if (window.innerWidth < 768) {
-                        const scrollTop = $(".__panel").scrollTop();
-                        let targetOffset = $(".button-wrapper").offset().top + scrollTop;
-                        $('.__panel').animate({scrollTop: targetOffset}, 1000);
-                    }
-
-                    setTimeout(() => {
-                        element.css("display", "flex");
-                        setTimeout(() => {
-                            element.addClass("animate__bounceInRight");
-                        }, 10)
-                    }, 100)
+                if (contentContainer.height() < (element.height() * 2)) {
+                    contentContainer.css("min-height", currentHeight + 200).css("height", currentHeight + 200);
                 }
+
+                if (window.innerWidth < 768) {
+                    const scrollTop = $(".__panel").scrollTop();
+                    let targetOffset = $(".button-wrapper").offset().top + scrollTop;
+                    $('.__panel').animate({scrollTop: targetOffset}, 1000);
+                }
+
+                setTimeout(() => {
+                    element.addClass("animate__bounceInRight");
+                    element.css("display", "flex");
+                }, 100)
             }
         },
     },
@@ -139,7 +135,7 @@ export default {
             data['reason'] = self.subjectArray;
             data['tel'] = telInputFunctions.getTelInputValue();
             data['discount'] = $("#discount-input").val();
-
+            self.$router.push("/thanks");
             api.post("/site/contact", data)
             .then(function(){
                 loading.hide();
@@ -168,7 +164,7 @@ export default {
                 sendContact.addClass("animate__bounceInRight");
 
                 const scrollTop = $(".__panel").scrollTop();
-                let targetOffset = $(".contact-component").offset().top + scrollTop - 50;
+                let targetOffset = $(".contact-component").offset().top + scrollTop - 150;
                 $('.__panel').animate({scrollTop: targetOffset}, 1000);
                 contactContent.css("min-height", "fit-content").css("height", "fit-content");
             }, 300)
@@ -192,7 +188,6 @@ export default {
 <style scoped>
 .contact-component {
     text-align: center;
-    padding: 3rem 0;
 }
 
 .forms-contact {
@@ -209,7 +204,6 @@ export default {
 }
 
 .contact-content {
-    margin: 2rem 0;
     transition: all 0.4s ease-in-out;
     min-height: fit-content;
     height: fit-content;
@@ -236,6 +230,7 @@ export default {
     transition: all 0.4s;
     margin: 1rem;
     z-index: 2;
+    display: none;
 }
 
     .contact-form-container-button:hover {

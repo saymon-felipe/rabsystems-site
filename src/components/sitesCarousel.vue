@@ -3,6 +3,12 @@
         <div ref="swiper" class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/solutto-thumb.png" dataTargetLink="solutto.com.br" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/mokaly-thumb.png" dataTargetLink="mokaly.com" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cademint-thumb.png" dataTargetLink="cademint.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
@@ -11,13 +17,7 @@
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/gourmetech-thumb.jpg" dataTargetLink="dev.gourmetech.com.br" v-on:click="expandImage($event)" />
                 </div>
-                <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/solutto-thumb.png" dataTargetLink="solutto.com.br" v-on:click="expandImage($event)" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/mokaly-thumb.png" dataTargetLink="mokaly.com" v-on:click="expandImage($event)" />
-                </div>
-                <div class="swiper-slide">
+                <div class="swiper-slide" v-if="false">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/envidrace-thumb.jpg" dataTargetLink="envidrace.com.br" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">

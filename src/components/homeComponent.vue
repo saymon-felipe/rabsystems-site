@@ -44,8 +44,6 @@ export default {
 }
 .home-component-container {
     padding-top: calc(12vh + 2rem);
-    height: 80vh;
-    overflow: hidden;
     position: relative;
 }
 

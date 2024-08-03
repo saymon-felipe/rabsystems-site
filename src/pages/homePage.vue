@@ -1,12 +1,12 @@
 <template>
     <div class="home-page" v-on:scroll="checkIfGoingUpShouldBeShown()">
-        <headerComponent />
-        <homeComponent />
-        <customersComponent />
-        <servicesComponent />
-        <contactComponent />
-        <aboutComponent />
-        <footerComponent />
+        <headerComponent class="section" />
+        <homeComponent class="section" />
+        <customersComponent class="section" />
+        <servicesComponent class="section" />
+        <contactComponent class="section" />
+        <aboutComponent class="section" />
+        <footerComponent class="section" />
         <div class="go-up" v-on:click="goToHomeComponent()">
             <i class="fas fa-angle-up"></i>
         </div>

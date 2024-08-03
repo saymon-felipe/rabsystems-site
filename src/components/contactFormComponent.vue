@@ -28,6 +28,7 @@ export default {
 </script>
 <style scoped>
 .contact-form-container {
+    background: var(--white);
     border: 1px solid var(--gray-high);
     width: 300px;
     height: 200px;
