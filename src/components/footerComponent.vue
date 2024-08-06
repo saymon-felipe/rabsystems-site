@@ -46,7 +46,6 @@
                             <p>Social</p>
                             <a href="https://www.instagram.com/raabsystems/" target="_blank">Instagram</a>
                             <a href="https://www.linkedin.com/company/rabsystems/" target="_blank">LinkedIn</a>
-                            <a href="https://github.com/Rab-Systems" target="_blank">GitHub</a>
                             <a href="https://www.facebook.com/profile.php?id=100090468378046" target="_blank">Facebook</a>
                         </div>
                     </div>
