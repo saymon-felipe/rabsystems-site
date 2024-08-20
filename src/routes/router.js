@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import homePage from "../pages/homePage.vue";
 import thanksPage from "../pages/thanksPage.vue";
+import unsubscribePage from '../pages/unsubscribePage.vue';
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,10 @@ const routes = [
     {
         path: "/thanks",
         component: thanksPage
+    },
+    {
+        path: "/unsubscribe",
+        component: unsubscribePage
     },
     {
         path: '*',
