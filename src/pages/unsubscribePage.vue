@@ -43,12 +43,14 @@ export default {
             let url = new URLSearchParams(window.location.search);
             let email = url.get("email");
 
+            email = email.replace(/\s/g, '+');
+
             if (!email) return;
 
             let data = {
                 email: email || ""
             }
-
+            
             api.post("/newsletter/unsubscribe", data)
             .then(function(){
                 self.success = true;
