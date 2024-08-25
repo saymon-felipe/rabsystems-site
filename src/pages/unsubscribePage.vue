@@ -50,7 +50,7 @@ export default {
             let data = {
                 email: email || ""
             }
-            
+
             api.post("/newsletter/unsubscribe", data)
             .then(function(){
                 self.success = true;
@@ -85,7 +85,7 @@ main.section {
     margin-bottom: 1.4rem;
 }
 
-.success-animation {
+.sad-animation {
     width: calc(10rem + 10vw);
 }
 </style>

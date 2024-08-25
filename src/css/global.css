@@ -29,6 +29,17 @@ body {
     background: var(--white);
 }
 
+.avatar-pp {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--gray-high);
+    margin-right: 10px;
+}
+
 .container {
     backdrop-filter: blur(2px);
     -webkit-backdrop-filter: blur(2px);

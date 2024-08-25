@@ -7,6 +7,7 @@
         <contactComponent class="section" />
         <aboutComponent class="section" />
         <footerComponent class="section" />
+        <talkComponent />
         <div class="go-up" v-on:click="goToHomeComponent()">
             <i class="fas fa-angle-up"></i>
         </div>
@@ -38,6 +39,7 @@ import servicesComponent from "../components/servicesComponent.vue";
 import contactComponent from "../components/contactComponent.vue";
 import aboutComponent from "../components/aboutComponent.vue";
 import footerComponent from "../components/footerComponent.vue";
+import talkComponent from "../components/talkComponent.vue";
 import { globalMethods } from '../assets/js/globalMethods.js';
 
 export default {
@@ -62,7 +64,8 @@ export default {
         servicesComponent,
         contactComponent,
         aboutComponent,
-        footerComponent
+        footerComponent,
+        talkComponent
     },
     watch: {
         showDiscount: function () {
