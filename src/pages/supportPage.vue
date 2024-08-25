@@ -96,12 +96,13 @@ export default {
             }
 
             let replacedUrlApi = api.defaults.baseURL.replace("http://", "").replace("https://", "");
+            let replacedWs = api.defaults.baseURL.indexOf("https") != -1 ? 'wss' : 'ws';
 
-            this.ws = new WebSocket('ws://' + replacedUrlApi + "?uuid=" + this.uuid + "&name=" + this.sender_name);
+            this.ws = new WebSocket(replacedWs + '://' + replacedUrlApi + "?uuid=" + this.uuid + "&name=" + this.sender_name);
 
             this.ws.onmessage = (event) => {
                 let data = JSON.parse(event.data);
-                console.log(data)
+                
                 if (data.type == "support_connected") {
                     this.connecting = false;
                 } else if (data.type == "message") {
