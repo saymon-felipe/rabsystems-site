@@ -3,6 +3,12 @@
         <div ref="swiper" class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/portal-aluno-thumb.png" dataTargetLink="solutto.com.br/segmento-franquia-educacional.aspx" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/portal-aluno-2-thumb.png" dataTargetLink="solutto.com.br/segmento-franquia-educacional.aspx" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/solutto-thumb.png" dataTargetLink="solutto.com.br" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
