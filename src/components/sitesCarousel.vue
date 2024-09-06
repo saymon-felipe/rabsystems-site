@@ -12,6 +12,9 @@
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/solutto-thumb.png" dataTargetLink="solutto.com.br" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cda-thumb.png" dataTargetLink="" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/mokaly-thumb.png" dataTargetLink="mokaly.com" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
