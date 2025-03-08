@@ -35,10 +35,11 @@
                     <div class="footer-sections">
                         <div class="footer-section">
                             <p>Produtos</p>
+                            <a href="https://dev.agendaspro.com" target="_blank">AgendasPro</a>
+                            <a href="https://dev-gourmetech.netlify.app" target="_blank">Gourmetech</a>
                             <a href="https://cademint.netlify.app" target="_blank">Cademint</a>
-                            <a href="https://dev.gourmetech.com.br" target="_blank">Gourmetech</a>
                         </div>
-                        <div class="footer-section">
+                        <div class="footer-section" v-if="false">
                             <p>Parcerias</p>
                             <a href="https://www.facebook.com/joaojunior.jj" target="_blank">João Marques</a>
                         </div>

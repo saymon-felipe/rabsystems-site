@@ -4,11 +4,11 @@
             <div class="row">
                 <div class="col-md-5 col-sm-12 home-text-container">
                     <div class="home-text">
-                        <h1>Transformando <br> ideias em sites <br>e sistemas web</h1>
+                        <h1>Conectando ideias, <br> criando possibilidades</h1>
                         <div>
                             <div class="principal-text">
-                                <h3>Especializados em soluções web personalizadas. Sites profissionais, sistemas robustos e design de qualidade. Seu sucesso online conosco!</h3>
-                                <p>Também fazemos manutenção de sites e sistemas</p>
+                                <h3>Especializados em soluções web. Sites profissionais, sistemas robustos e design de qualidade.</h3>
+                                <p>Criação, manutenção e assistência técnica.</p>
                             </div>
                             <button class="btn btn-primary" v-on:click="goToContactComponent()">
                                 Orçamento gratuito

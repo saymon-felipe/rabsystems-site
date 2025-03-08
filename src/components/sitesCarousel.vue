@@ -3,13 +3,10 @@
         <div ref="swiper" class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/agendaspro.png" dataTargetLink="dev.agendaspro.com" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/portal-aluno-thumb.png" dataTargetLink="solutto.com.br/segmento-franquia-educacional.aspx" v-on:click="expandImage($event)" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/sistema-solutto-thumb.png" dataTargetLink="sistema.solutto.com.br" v-on:click="expandImage($event)" />
-                </div>
-                <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/sistema-mokaly-thumb.png" dataTargetLink="app.mokaly.com" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/portal-aluno-2-thumb.png" dataTargetLink="solutto.com.br/segmento-franquia-educacional.aspx" v-on:click="expandImage($event)" />
@@ -18,22 +15,28 @@
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/solutto-thumb.png" dataTargetLink="solutto.com.br" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cda-thumb.png" dataTargetLink="" v-on:click="expandImage($event)" />
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/sistema-solutto-thumb.png" dataTargetLink="sistema.solutto.com.br" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/mokaly-thumb.png" dataTargetLink="mokaly.com" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/sistema-mokaly-thumb.png" dataTargetLink="app.mokaly.com" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cda-thumb.png" dataTargetLink="" v-on:click="expandImage($event)" />
+                </div>
+                <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cademint-thumb.png" dataTargetLink="cademint.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cademint-system-thumb.png" dataTargetLink="app-cademint.netlify.app" v-on:click="expandImage($event)" />
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/cademint-system.png" dataTargetLink="test-cademint.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/gourmetech-thumb.jpg" dataTargetLink="dev.gourmetech.com.br" v-on:click="expandImage($event)" />
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/gourmetech.png" dataTargetLink="dev-gourmetech.netlify.app" v-on:click="expandImage($event)" />
                 </div>
-                <div class="swiper-slide" v-if="false">
-                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/envidrace-thumb.jpg" dataTargetLink="envidrace.com.br" v-on:click="expandImage($event)" />
+                <div class="swiper-slide">
+                    <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/yuume.png" dataTargetLink="yuume.netlify.app" v-on:click="expandImage($event)" />
                 </div>
                 <div class="swiper-slide">
                     <img src="https://rabsystems-storage.s3.sa-east-1.amazonaws.com/ieq-farol-thumbs.png" dataTargetLink="ieq-farol.netlify.app" v-on:click="expandImage($event)" />

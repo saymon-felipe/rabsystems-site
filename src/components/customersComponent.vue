@@ -11,6 +11,9 @@
                         <a target="_blank" href="https://www.mokaly.com">
                             <img src="../assets/img/customers/mokaly-logo.png" alt="Mokaly" title="Mokaly">
                         </a>
+                        <a target="_blank" href="https://dev.agendaspro.com">
+                            <img src="../assets/img/customers/agendaspro-logo.png" alt="AgendasPro" title="AgendasPro">
+                        </a>
                         <a target="_blank" href="https://cademint.netlify.app">
                             <img src="../assets/img/customers/cademint-logo.png" alt="Cademint" title="Cademint">
                         </a>
@@ -19,9 +22,6 @@
                         </a>
                         <a target="_blank" href="https://ieq-farol.netlify.app/">
                             <img src="../assets/img/customers/ieq-farol-logo.png" alt="IEQ Farol" title="IEQ Farol">
-                        </a>
-                        <a target="_blank" href="https://www.envidrace.com.br" v-if="false">
-                            <img src="../assets/img/customers/logo-envidrace.png" alt="Envidrace" title="Envidrace">
                         </a>
                     </div>
                 </div>
