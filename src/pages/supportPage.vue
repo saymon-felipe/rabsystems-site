@@ -86,7 +86,8 @@ export default {
             sender_name: "",
             connecting: true,
             init_chat: false,
-            messages: []
+            messages: [],
+            interval: null
         }
     },
     methods: {
@@ -119,8 +120,11 @@ export default {
                 this.ws.close();
             };
 
-            setInterval(() => {
+            this.interval = setInterval(() => {
                 this.ws.send(JSON.stringify({ type: 'heartbeat' }));
+                if (this.ended) {
+                    clearInterval(this.interval);
+                }
             }, 10000);
         },
         sendMessage: function () {
