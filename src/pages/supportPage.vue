@@ -95,6 +95,7 @@ export default {
                 return;
             }
 
+            console.log(api.defaults.baseURL)
             let replacedUrlApi = api.defaults.baseURL.replace("http://", "").replace("https://", "");
             let replacedWs = api.defaults.baseURL.indexOf("https") != -1 ? 'wss' : 'ws';
 
@@ -121,7 +122,7 @@ export default {
 
             setInterval(() => {
                 this.ws.send(JSON.stringify({ type: 'heartbeat' }));
-            }, 25000);
+            }, 10000);
         },
         sendMessage: function () {
             let newMessage = {
