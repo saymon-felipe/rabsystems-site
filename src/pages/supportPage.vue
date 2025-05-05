@@ -118,6 +118,10 @@ export default {
                 this.ended = true;
                 this.ws.close();
             };
+
+            setInterval(() => {
+                this.ws.send(JSON.stringify({ type: 'heartbeat' }));
+            }, 25000);
         },
         sendMessage: function () {
             let newMessage = {
