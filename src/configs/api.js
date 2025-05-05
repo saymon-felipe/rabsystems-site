@@ -10,7 +10,7 @@ let test_or_prod;
 
 if (window.location.href.indexOf("localhost") != -1 || window.location.href.indexOf("192.168") != -1) {
     test_or_prod = 0;
-} else if (window.location.href.indexOf("app.") != -1) {
+} else if (window.location.href.indexOf("https://rabsystems.com.br") != -1) {
     test_or_prod = 1;
 }
 
