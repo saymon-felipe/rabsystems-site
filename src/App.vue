@@ -37,6 +37,9 @@ export default {
       }
     }
   },
+  mounted: function () {
+    window.location.href = "https://kineticsolutions.com.br?utm_source=oldsite";
+  },
   components: {
     hexBackground
   }
